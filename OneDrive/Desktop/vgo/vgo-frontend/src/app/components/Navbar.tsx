@@ -1,5 +1,5 @@
 'use client'
-
+import Image from "next/image";
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 
@@ -10,9 +10,14 @@ export default function Navbar() {
         <div className="container flex h-16 items-center justify-start">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 font-bold text-lg text-white">
-            <span className="text-2xl">🏎️</span>
-            <span>VGO Racing</span>
+          <Link href="/" className="flex items-center space-x-2 pl-3">
+            <Image
+              src="/vgoLogo.png"
+              alt="VGO Racing Logo"
+              width={180} 
+              height={80}
+              className="object-contain"
+            />
           </Link>
 
           {/* Nav Links */}

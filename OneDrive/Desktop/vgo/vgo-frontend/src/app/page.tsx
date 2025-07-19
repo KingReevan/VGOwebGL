@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-
+import { LightningBoltIcon, GaugeIcon, ShieldIcon, PersonIcon, MapPinIcon, LoopIcon, TimerIcon, SafetyIcon} from './components/icons';
 export default function Home() {
   return (
     <div className="min-h-screen">
@@ -34,23 +34,72 @@ export default function Home() {
 
 
         {/* Car & Track Details */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-bold text-center">Our Cars & Tracks</h2>
-          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto">
-            Discover high-performance go-karts and a professionally designed track that maximizes speed while ensuring maximum safety.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold">State-of-the-Art Go-Karts</h3>
-              <p className="text-muted-foreground">
-                Our fleet features the latest electric go-karts with adjustable speed settings for all skill levels.
-              </p>
+        <section className="space-y-12">
+          
+          {/* Go-Kart Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-5">
+            <div className="order-2 lg:order-1 space-y-6">
+              <h3 className="text-2xl font-semibold">State-of-the-Art Electric Go-Karts</h3>
+              <ul className="space-y-4 text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <LightningBoltIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span>4000W electric motors with instant torque delivery</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <GaugeIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Adjustable speed settings (20-60 km/h) for all skill levels</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <ShieldIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Roll cages and 5-point harnesses for maximum safety</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <PersonIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Adjustable seats to accommodate drivers from 140cm to 195cm</span>
+                </li>
+              </ul>
             </div>
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold">Championship-Level Track</h3>
-              <p className="text-muted-foreground">
-                A 500m track with challenging turns, elevation changes, and professional timing systems.
-              </p>
+            <div className="order-1 lg:order-2 relative aspect-video rounded-xl overflow-hidden shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
+              <Image 
+                src="/hero-bg.jpeg" 
+                alt="High-performance electric go-kart"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
+
+          {/* Track Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-16 px-5">
+            <div className="relative aspect-video rounded-xl overflow-hidden shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
+              <Image 
+                src="/bigTrack.jpg" 
+                alt="Championship-level go-kart track"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="space-y-6">
+              <h3 className="text-2xl font-semibold">Championship-Level Track</h3>
+              <ul className="space-y-4 text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <MapPinIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span>500 meter professionally designed circuit</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <LoopIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span>12 challenging turns with elevation changes</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <TimerIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span>Professional timing system with lap analysis</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <SafetyIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <span>FIA-approved safety barriers and runoff areas</span>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
