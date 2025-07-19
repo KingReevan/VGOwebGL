@@ -1,103 +1,206 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen">
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <main className="container space-y-24">
+        {/* Hero Section */}
+        <section
+          className="relative flex flex-col items-center justify-center text-center space-y-6 min-h-[92vh] bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/hero-bg.jpeg')" }}
+        >
+          {/* Optional: dark overlay */}
+          
+          <div className="absolute inset-0 bg-black/55 backdrop-blur-[2px] z-0" />
+          
+          {/* Hero Content */}
+          <div className="relative z-10 px-4">
+            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl text-white">
+              Experience the Thrill of VGO Racing
+            </h1>
+            <p className="text-lg max-w-2xl mt-4 text-white mx-auto">
+              Book your next go-karting adventure now and feel the adrenaline rush like never before!
+            </p>
+            <div className="flex gap-4 justify-center mt-6">
+              <Button asChild variant="outline" size="lg">
+                <Link href="/book">Book Now</Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+
+        {/* Car & Track Details */}
+        <section className="space-y-6">
+          <h2 className="text-3xl font-bold text-center">Our Cars & Tracks</h2>
+          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto">
+            Discover high-performance go-karts and a professionally designed track that maximizes speed while ensuring maximum safety.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold">State-of-the-Art Go-Karts</h3>
+              <p className="text-muted-foreground">
+                Our fleet features the latest electric go-karts with adjustable speed settings for all skill levels.
+              </p>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold">Championship-Level Track</h3>
+              <p className="text-muted-foreground">
+                A 500m track with challenging turns, elevation changes, and professional timing systems.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Timings & Pricing */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* Timings */}
+          <section className="space-y-4 p-8 bg-muted rounded-xl">
+            <h2 className="text-2xl font-semibold text-center">Operating Hours</h2>
+            <div className="space-y-2 text-center">
+              <p className="text-lg">Monday - Friday: 12:00 PM – 10:00 PM</p>
+              <p className="text-lg">Weekends: 10:00 AM – 11:00 PM</p>
+            </div>
+          </section>
+
+          {/* Pricing Table */}
+          <section className="space-y-4">
+            <h2 className="text-2xl font-semibold text-center">Pricing Packages</h2>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="border p-6 rounded-lg text-center space-y-2">
+                <p className="font-medium">10 Laps</p>
+                <p className="text-2xl font-bold">₹700</p>
+              </div>
+              <div className="border p-6 rounded-lg text-center space-y-2">
+                <p className="font-medium">20 Laps</p>
+                <p className="text-2xl font-bold">₹1200</p>
+                <p className="text-sm text-muted-foreground">Save ₹200</p>
+              </div>
+              <div className="border p-6 rounded-lg text-center space-y-2">
+                <p className="font-medium">30 Laps</p>
+                <p className="text-2xl font-bold">₹1600</p>
+                <p className="text-sm text-muted-foreground">Save ₹500</p>
+              </div>
+              <div className="border p-6 rounded-lg text-center space-y-2">
+                <p className="font-medium">Group (4+ people)</p>
+                <p className="text-2xl font-bold">₹500/person</p>
+                <p className="text-sm text-muted-foreground">10 laps each</p>
+              </div>
+            </div>
+          </section>
         </div>
+
+        {/* Gallery */}
+        <section className="space-y-6">
+          <h2 className="text-3xl font-bold text-center">Gallery</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="relative aspect-video overflow-hidden rounded-lg">
+              <Image src="/gallery/staringDriver.png" alt="Racing 1" fill className="object-cover hover:scale-105 transition-transform" />
+            </div>
+            <div className="relative aspect-video overflow-hidden rounded-lg">
+              <Image src="/gallery/driver.jpg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
+            </div>
+            <div className="relative aspect-video overflow-hidden rounded-lg">
+              <Image src="/gallery/largeTrack.jpg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
+            </div>
+            <div className="relative aspect-video overflow-hidden rounded-lg">
+              <Image src="/gallery/largeTrack.jpg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
+            </div>
+            <div className="relative aspect-video overflow-hidden rounded-lg">
+              <Image src="/gallery/largeTrack.jpg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
+            </div>
+            <div className="relative aspect-video overflow-hidden rounded-lg">
+              <Image src="/gallery/largeTrack.jpg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section className="space-y-6">
+          <h2 className="text-3xl font-bold text-center">What Our Racers Say</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="border p-6 rounded-lg space-y-4">
+              <div className="flex items-center space-x-2">
+                <div className="h-10 w-10 rounded-full bg-muted"></div>
+                <div>
+                  <p className="font-medium">Rahul S.</p>
+                  <p className="text-sm text-muted-foreground">Professional Racer</p>
+                </div>
+              </div>
+              <p className="italic">"The best track in the city! The karts are well-maintained and the staff is super helpful."</p>
+            </div>
+            <div className="border p-6 rounded-lg space-y-4">
+              <div className="flex items-center space-x-2">
+                <div className="h-10 w-10 rounded-full bg-muted"></div>
+                <div>
+                  <p className="font-medium">Priya M.</p>
+                  <p className="text-sm text-muted-foreground">First-time Racer</p>
+                </div>
+              </div>
+              <p className="italic">"I was nervous at first but the instructors made me feel so comfortable. Can't wait to come back!"</p>
+            </div>
+            <div className="border p-6 rounded-lg space-y-4">
+              <div className="flex items-center space-x-2">
+                <div className="h-10 w-10 rounded-full bg-muted"></div>
+                <div>
+                  <p className="font-medium">Team TechStars</p>
+                  <p className="text-sm text-muted-foreground">Corporate Event</p>
+                </div>
+              </div>
+              <p className="italic">"We booked for a team outing and everyone had a blast. Great for team building!"</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Upcoming Events */}
+        <section className="space-y-6">
+          <h2 className="text-3xl font-bold text-center">Upcoming Events</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="border p-6 rounded-lg space-y-4">
+              <h3 className="text-xl font-semibold">Friday Night Racing League</h3>
+              <p className="text-muted-foreground">Every Friday at 8 PM</p>
+              <p>Compete against other racers for prizes and bragging rights!</p>
+              <Button variant="outline" className="w-full">Learn More</Button>
+            </div>
+            <div className="border p-6 rounded-lg space-y-4">
+              <h3 className="text-xl font-semibold">Kids Racing Camp</h3>
+              <p className="text-muted-foreground">Starting July 15th</p>
+              <p>A 2-week program to teach kids racing fundamentals and safety.</p>
+              <Button variant="outline" className="w-full">Learn More</Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Map */}
+        <section className="space-y-6">
+          <h2 className="text-3xl font-bold text-center">Find Us</h2>
+          <div className="aspect-video w-full rounded-lg overflow-hidden border">
+            <iframe
+              className="w-full h-full"
+              src="https://www.google.com/maps/embed?pb=!1m18!..." // Replace with the actual map embed link
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div className="space-y-2">
+              <h3 className="font-medium">Address</h3>
+              <p className="text-muted-foreground">123 Racing Street, Speed City</p>
+            </div>
+            <div className="space-y-2">
+              <h3 className="font-medium">Phone</h3>
+              <p className="text-muted-foreground">+91 98765 43210</p>
+            </div>
+            <div className="space-y-2">
+              <h3 className="font-medium">Email</h3>
+              <p className="text-muted-foreground">info@vgoracing.com</p>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
