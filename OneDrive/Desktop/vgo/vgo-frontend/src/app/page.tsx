@@ -297,7 +297,7 @@ export default function Home() {
         <UpcomingEvents/>
 
         {/* Map */}
-        <section className="space-y-6">
+        <section className="space-y-6 pb-16">
           <h2 className="text-4xl font-bold text-center">Find Us</h2>
           <div className="px-16">
             <div className="w-full h-[320px] rounded-lg overflow-hidden border shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border-red-500">
@@ -310,18 +310,18 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mt-12 py-6 bg-gradient-to-r from-rose-950 via-red-500 to-rose-950 border-y shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border-red-500">
             <div className="space-y-2">
-              <h3 className="font-medium">Address</h3>
-              <p className="text-muted-foreground">123 Racing Street, Speed City</p>
+              <h3 className="font-bold text-2xl">Address</h3>
+              <p className="text-primary">Bharat Mall, Lalbagh</p>
             </div>
             <div className="space-y-2">
-              <h3 className="font-medium">Phone</h3>
-              <p className="text-muted-foreground">+91 98765 43210</p>
+              <h3 className="font-bold text-2xl">Phone</h3>
+              <p className="text-primary">+91 98765 43210</p>
             </div>
             <div className="space-y-2">
-              <h3 className="font-medium">Email</h3>
-              <p className="text-muted-foreground">info@vgoracing.com</p>
+              <h3 className="font-bold text-2xl">Email</h3>
+              <p className="text-primary">info@vgoracing.com</p>
             </div>
           </div>
         </section>
