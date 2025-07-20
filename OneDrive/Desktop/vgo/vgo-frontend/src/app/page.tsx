@@ -1,10 +1,27 @@
+
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { LightningBoltIcon, GaugeIcon, ShieldIcon, PersonIcon, MapPinIcon, LoopIcon, TimerIcon, SafetyIcon} from './components/icons';
+
+
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import UpcomingEvents from "./components/Slideshow";
+
+const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+const location = "Vanora Robots, Mangalore";
+const mapUrl = `https://www.google.com/maps/embed/v1/place?key=${GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(location)}`;
+
+console.log("API KEY:", GOOGLE_MAPS_API_KEY);
+console.log("Map URL:", mapUrl);
+
+
+
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    
+    <div className="min-h-screen selection:bg-red-500 bg-gray-900 text-primary">
 
       <main className="container space-y-24">
         {/* Hero Section */}
@@ -18,15 +35,15 @@ export default function Home() {
           
           {/* Hero Content */}
           <div className="relative z-10 px-4">
-            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl text-white">
+            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl text-primary">
               Experience the Thrill of VGO Racing
             </h1>
-            <p className="text-lg max-w-2xl mt-4 text-white mx-auto">
+            <p className="text-lg max-w-3xl mt-4 text-primary mx-auto">
               Book your next go-karting adventure now and feel the adrenaline rush like never before!
             </p>
             <div className="flex gap-4 justify-center mt-6">
               <Button asChild variant="outline" size="lg">
-                <Link href="/book">Book Now</Link>
+                <Link href="/book" className="text-black w-36 h-12">Book Now</Link>
               </Button>
             </div>
           </div>
@@ -37,10 +54,10 @@ export default function Home() {
         <section className="space-y-12">
           
           {/* Go-Kart Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-5">
-            <div className="order-2 lg:order-1 space-y-6">
-              <h3 className="text-2xl font-semibold">State-of-the-Art Electric Go-Karts</h3>
-              <ul className="space-y-4 text-muted-foreground">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center px-5">
+            <div className="order-2 lg:order-1 space-y-6 pl-25">
+              <h3 className="text-3xl font-semibold text-primary">State-of-the-Art Electric Go-Karts</h3>
+              <ul className="space-y-4 text-2xl">
                 <li className="flex items-start gap-3">
                   <LightningBoltIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                   <span>4000W electric motors with instant torque delivery</span>
@@ -71,7 +88,7 @@ export default function Home() {
           </div>
 
           {/* Track Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-16 px-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-16 px-5 justify-evenly">
             <div className="relative aspect-video rounded-xl overflow-hidden shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
               <Image 
                 src="/bigTrack.jpg" 
@@ -80,9 +97,9 @@ export default function Home() {
                 className="object-cover"
               />
             </div>
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold">Championship-Level Track</h3>
-              <ul className="space-y-4 text-muted-foreground">
+            <div className="space-y-6 pl-25">
+              <h3 className="text-3xl font-semibold text-primary">Championship-Level Track</h3>
+              <ul className="space-y-4 text-primary text-2xl">
                 <li className="flex items-start gap-3">
                   <MapPinIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
                   <span>500 meter professionally designed circuit</span>
@@ -104,76 +121,140 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Timings & Pricing */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Timings */}
-          <section className="space-y-4 p-8 bg-muted rounded-xl">
-            <h2 className="text-2xl font-semibold text-center">Operating Hours</h2>
-            <div className="space-y-2 text-center">
-              <p className="text-lg">Monday - Friday: 12:00 PM – 10:00 PM</p>
-              <p className="text-lg">Weekends: 10:00 AM – 11:00 PM</p>
+        {/* Timings */}
+        <section className="py-8 border-y-3 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border-red-500">
+          <div className="container">
+            <h2 className="text-3xl font-bold text-center mb-6">Operating Hours</h2>
+            <div className="flex justify-center gap-16">
+              <div className="text-center">
+                <h3 className="text-xl font-medium text-primary">Weekdays</h3>
+                <p className="text-lg">12:00 PM – 10:00 PM</p>
+              </div>
+              <div className="text-center">
+                <h3 className="text-xl font-medium text-primary">Weekends</h3>
+                <p className="text-lg">10:00 AM – 11:00 PM</p>
+              </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* Pricing Table */}
-          <section className="space-y-4">
-            <h2 className="text-2xl font-semibold text-center">Pricing Packages</h2>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="border p-6 rounded-lg text-center space-y-2">
-                <p className="font-medium">10 Laps</p>
-                <p className="text-2xl font-bold">₹700</p>
+        {/* Pricing */}
+        <section className="space-y-8 py-12">
+          <h2 className="text-3xl font-bold text-center">Pricing Packages</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {/* Basic Package */}
+            <Link href="/book" className="border border-gray-900 rounded-xl overflow-hidden hover:shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] hover:border-red-500 transition-all duration-300 flex flex-col cursor-pointer h-full">
+              <div className="border-b border-red-500 bg-gradient-to-bl from-red-500 to-60% p-4 text-center">
+                <h3 className="text-primary font-bold text-xl">10 Laps</h3>
               </div>
-              <div className="border p-6 rounded-lg text-center space-y-2">
-                <p className="font-medium">20 Laps</p>
-                <p className="text-2xl font-bold">₹1200</p>
-                <p className="text-sm text-muted-foreground">Save ₹200</p>
+              <div className="p-6 flex flex-col flex-1 bg-gradient-to-tr from-red-500 to-60%">
+                <div className="text-center space-y-4 mb-6">
+                  <p className="text-4xl font-bold">₹700</p>
+                  <p className="text-primary mt-17">Perfect for beginners</p>
+                </div>
               </div>
-              <div className="border p-6 rounded-lg text-center space-y-2">
-                <p className="font-medium">30 Laps</p>
-                <p className="text-2xl font-bold">₹1600</p>
-                <p className="text-sm text-muted-foreground">Save ₹500</p>
+            </Link>
+
+            {/* Popular Package */}
+            <Link href="/book" className="border border-gray-900 rounded-xl overflow-hidden hover:shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] hover:border-red-500 transition-all duration-300 flex flex-col cursor-pointer h-full relative">
+              <div className="absolute top-0 right-0 text-xs font-bold px-2 py-1 rounded-bl text-blue-50 border-l border-b">
+                POPULAR
               </div>
-              <div className="border p-6 rounded-lg text-center space-y-2">
-                <p className="font-medium">Group (4+ people)</p>
-                <p className="text-2xl font-bold">₹500/person</p>
-                <p className="text-sm text-muted-foreground">10 laps each</p>
+              <div className="border-b border-red-500 bg-gradient-to-bl from-red-500 to-60% p-4 text-center">
+                <h3 className="text-primary font-bold text-xl">20 Laps</h3>
               </div>
-            </div>
-          </section>
-        </div>
+              <div className="p-6 flex flex-col flex-1 bg-gradient-to-tr from-red-500 to-60%">
+                <div className="text-center space-y-4 mb-6">
+                  <div>
+                    <p className="text-4xl font-bold">₹1200</p>
+                    <p className="text-sm text-green-600">Save ₹200</p>
+                  </div>
+                  <p className="text-primary mt-12">Great for regular racers</p>
+                </div>
+              </div>
+            </Link>
+
+            {/* Premium Package */}
+            <Link href="/book" className="border border-gray-900 rounded-xl overflow-hidden hover:shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] hover:border-red-500 transition-all duration-300 flex flex-col cursor-pointer h-full relative">
+              <div className="border-b border-red-500 bg-gradient-to-bl from-red-500 to-60% p-4 text-center">
+                <h3 className="text-primary font-bold text-xl">30 Laps</h3>
+              </div>
+              <div className="p-6 flex flex-col flex-1 bg-gradient-to-tr from-red-500 to-60%">
+                <div className="text-center space-y-4 mb-6">
+                  <div>
+                    <p className="text-4xl font-bold">₹1600</p>
+                    <p className="text-sm text-green-600">Save ₹500</p>
+                  </div>
+                  <p className="text-primary mt-12">For the ultimate experience</p>
+                </div>
+              </div>
+            </Link>
+
+            {/* Group Package */}
+            <Link href="/book" className="border border-gray-900 rounded-xl overflow-hidden hover:shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] hover:border-red-500 transition-all duration-300 flex flex-col cursor-pointer h-full">
+              <div className="border-b border-red-500 bg-gradient-to-bl from-red-500 to-60% p-4 text-center">
+                <h3 className="text-primary font-bold text-xl">Group Package</h3>
+              </div>
+              <div className="p-6 flex flex-col flex-1 bg-gradient-to-tr from-red-500 to-60%">
+                <div className="text-center space-y-4 mb-6">
+                  <p className="text-4xl font-bold">₹500<span className="text-lg">/person</span></p>
+                  <p className="text-primary mt-17">4+ people, 10 laps each</p>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+          <p className="text-center text-muted-foreground mt-8">
+            * All packages include safety gear and a brief training session
+          </p>
+        </section>
 
         {/* Gallery */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-bold text-center">Gallery</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="relative aspect-video overflow-hidden rounded-lg">
+        <section className="space-y-6 px-4 py-12 bg-black/5 dark:bg-white/5 rounded-xl">
+          <h2 className="text-4xl font-extrabold text-center tracking-wide bg-gradient-to-r from-red-500 to-red-400 text-transparent bg-clip-text animate-pulse">Pick Up the Pace with VGO</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
+            <div className="relative aspect-video overflow-hidden rounded-lg shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
               <Image src="/gallery/staringDriver.png" alt="Racing 1" fill className="object-cover hover:scale-105 transition-transform" />
             </div>
-            <div className="relative aspect-video overflow-hidden rounded-lg">
+            <div className="relative aspect-video overflow-hidden rounded-lg shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
               <Image src="/gallery/driver.jpg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
             </div>
-            <div className="relative aspect-video overflow-hidden rounded-lg">
+            <div className="relative aspect-video overflow-hidden rounded-lg shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
               <Image src="/gallery/largeTrack.jpg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
             </div>
-            <div className="relative aspect-video overflow-hidden rounded-lg">
-              <Image src="/gallery/largeTrack.jpg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
+            <div className="relative aspect-video overflow-hidden rounded-lg shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
+              <Image src="/gallery/gallery1.jpg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
             </div>
-            <div className="relative aspect-video overflow-hidden rounded-lg">
-              <Image src="/gallery/largeTrack.jpg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
+            <div className="relative aspect-video overflow-hidden rounded-lg shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
+              <Image src="/gallery/gallery2.png" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
             </div>
-            <div className="relative aspect-video overflow-hidden rounded-lg">
-              <Image src="/gallery/largeTrack.jpg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
+            <div className="relative aspect-video overflow-hidden rounded-lg shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
+              <Image src="/gallery/gallery3.jpeg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
+            </div>
+            <div className="relative aspect-video overflow-hidden rounded-lg shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
+              <Image src="/gallery/gallery4.jpg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
+            </div>
+            <div className="relative aspect-video overflow-hidden rounded-lg shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
+              <Image src="/gallery/gallery5.png" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
+            </div>
+            <div className="relative aspect-video overflow-hidden rounded-lg shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
+              <Image src="/gallery/gallery6.jpg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
             </div>
           </div>
         </section>
 
         {/* Testimonials */}
-        <section className="space-y-6">
+        <section className="space-y-6 px-6">
           <h2 className="text-3xl font-bold text-center">What Our Racers Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="border p-6 rounded-lg space-y-4">
+            <div className="border shadow-[0_0_15px_2px_rgba(255,255,255,0.4)] p-6 rounded-lg space-y-4">
               <div className="flex items-center space-x-2">
-                <div className="h-10 w-10 rounded-full bg-muted"></div>
+                <img
+                  src="/testimonials/pfp1.png" // replace with your actual image path
+                  alt="Rahul S."
+                  className="h-10 w-10 rounded-full object-cover"
+                />
                 <div>
                   <p className="font-medium">Rahul S.</p>
                   <p className="text-sm text-muted-foreground">Professional Racer</p>
@@ -181,9 +262,13 @@ export default function Home() {
               </div>
               <p className="italic">"The best track in the city! The karts are well-maintained and the staff is super helpful."</p>
             </div>
-            <div className="border p-6 rounded-lg space-y-4">
+            <div className="border shadow-[0_0_15px_2px_rgba(255,255,255,0.4)] p-6 rounded-lg space-y-4">
               <div className="flex items-center space-x-2">
-                <div className="h-10 w-10 rounded-full bg-muted"></div>
+                <img
+                  src="/testimonials/pfp2.png" // replace with your actual image path
+                  alt="Rahul S."
+                  className="h-10 w-10 rounded-full object-cover"
+                />
                 <div>
                   <p className="font-medium">Priya M.</p>
                   <p className="text-sm text-muted-foreground">First-time Racer</p>
@@ -191,9 +276,13 @@ export default function Home() {
               </div>
               <p className="italic">"I was nervous at first but the instructors made me feel so comfortable. Can't wait to come back!"</p>
             </div>
-            <div className="border p-6 rounded-lg space-y-4">
+            <div className="border shadow-[0_0_15px_2px_rgba(255,255,255,0.4)] p-6 rounded-lg space-y-4">
               <div className="flex items-center space-x-2">
-                <div className="h-10 w-10 rounded-full bg-muted"></div>
+                <img
+                  src="/testimonials/pfp3.png" // replace with your actual image path
+                  alt="Rahul S."
+                  className="h-10 w-10 rounded-full object-cover"
+                />
                 <div>
                   <p className="font-medium">Team TechStars</p>
                   <p className="text-sm text-muted-foreground">Corporate Event</p>
@@ -205,35 +294,22 @@ export default function Home() {
         </section>
 
         {/* Upcoming Events */}
-        <section className="space-y-6">
-          <h2 className="text-3xl font-bold text-center">Upcoming Events</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="border p-6 rounded-lg space-y-4">
-              <h3 className="text-xl font-semibold">Friday Night Racing League</h3>
-              <p className="text-muted-foreground">Every Friday at 8 PM</p>
-              <p>Compete against other racers for prizes and bragging rights!</p>
-              <Button variant="outline" className="w-full">Learn More</Button>
-            </div>
-            <div className="border p-6 rounded-lg space-y-4">
-              <h3 className="text-xl font-semibold">Kids Racing Camp</h3>
-              <p className="text-muted-foreground">Starting July 15th</p>
-              <p>A 2-week program to teach kids racing fundamentals and safety.</p>
-              <Button variant="outline" className="w-full">Learn More</Button>
-            </div>
-          </div>
-        </section>
+        <UpcomingEvents/>
 
         {/* Map */}
         <section className="space-y-6">
-          <h2 className="text-3xl font-bold text-center">Find Us</h2>
-          <div className="aspect-video w-full rounded-lg overflow-hidden border">
-            <iframe
-              className="w-full h-full"
-              src="https://www.google.com/maps/embed?pb=!1m18!..." // Replace with the actual map embed link
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+          <h2 className="text-4xl font-bold text-center">Find Us</h2>
+          <div className="px-16">
+            <div className="w-full h-[320px] rounded-lg overflow-hidden border shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border-red-500">
+              <iframe
+                className="w-full h-full"
+                src={mapUrl}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
+          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
             <div className="space-y-2">
               <h3 className="font-medium">Address</h3>
