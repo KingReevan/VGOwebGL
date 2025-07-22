@@ -3,11 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { LightningBoltIcon, GaugeIcon, ShieldIcon, PersonIcon, MapPinIcon, LoopIcon, TimerIcon, SafetyIcon} from './components/icons';
+import Leaderboard from "./components/Leaderboard";
+import WhatsAppButton from "./components/WhatsAppButton";
 
-
-import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import UpcomingEvents from "./components/Slideshow";
+import { Partnerships } from "./components/Partnerships";
 
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 const location = "Vanora Robots, Mangalore";
@@ -16,7 +16,13 @@ const mapUrl = `https://www.google.com/maps/embed/v1/place?key=${GOOGLE_MAPS_API
 console.log("API KEY:", GOOGLE_MAPS_API_KEY);
 console.log("Map URL:", mapUrl);
 
-
+const leaderboardData = [
+  { position: 1, name: "Rahul Sharma", pfp: "/racers/pfp1.png", score: 42 },
+  { position: 2, name: "Priya Patel", pfp: "/racers/pfp2.png", score: 38 },
+  { position: 3, name: "Arjun Kapoor", pfp: "/racers/pfp3.png", score: 35 },
+  { position: 4, name: "Neha Gupta", pfp: "/racers/pfp4.png", score: 32 },
+  { position: 5, name: "Vikram Singh", pfp: "/racers/pfp5.png", score: 28 }
+];
 
 export default function Home() {
   return (
@@ -42,8 +48,8 @@ export default function Home() {
               Book your next go-karting adventure now and feel the adrenaline rush like never before!
             </p>
             <div className="flex gap-4 justify-center mt-6">
-              <Button asChild variant="outline" size="lg">
-                <Link href="/book" className="text-black w-36 h-12">Book Now</Link>
+              <Button asChild variant="outline" size="lg" className="transform transition-transform duration-300 hover:scale-110">
+                <Link href="/book" className="text-black w-36 h-12 flex items-center justify-center transition-all duration-300">Book Now</Link>
               </Button>
             </div>
           </div>
@@ -56,7 +62,7 @@ export default function Home() {
           {/* Go-Kart Section */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center px-5">
             <div className="order-2 lg:order-1 space-y-6 pl-25">
-              <h3 className="text-3xl font-semibold text-primary">State-of-the-Art Electric Go-Karts</h3>
+              <h3 className="text-4xl font-extrabold text-primary">State-of-the-Art Electric Go-Karts</h3>
               <ul className="space-y-4 text-2xl">
                 <li className="flex items-start gap-3">
                   <LightningBoltIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -98,7 +104,7 @@ export default function Home() {
               />
             </div>
             <div className="space-y-6 pl-25">
-              <h3 className="text-3xl font-semibold text-primary">Championship-Level Track</h3>
+              <h3 className="text-4xl font-extrabold text-primary">Championship-Level Track</h3>
               <ul className="space-y-4 text-primary text-2xl">
                 <li className="flex items-start gap-3">
                   <MapPinIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
@@ -124,7 +130,7 @@ export default function Home() {
         {/* Timings */}
         <section className="py-8 border-y-3 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border-red-500">
           <div className="container">
-            <h2 className="text-3xl font-bold text-center mb-6">Operating Hours</h2>
+            <h2 className="text-4xl font-extrabold text-center mb-6">Operating Hours</h2>
             <div className="flex justify-center gap-16">
               <div className="text-center">
                 <h3 className="text-xl font-medium text-primary">Weekdays</h3>
@@ -140,11 +146,11 @@ export default function Home() {
 
         {/* Pricing */}
         <section className="space-y-8 py-12">
-          <h2 className="text-3xl font-bold text-center">Pricing Packages</h2>
+          <h2 className="text-4xl font-extrabold text-center">Pricing Packages</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {/* Basic Package */}
-            <Link href="/book" className="border border-gray-900 rounded-xl overflow-hidden hover:shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] hover:border-red-500 transition-all duration-300 flex flex-col cursor-pointer h-full">
+            <Link href="/book" className="border border-gray-900 rounded-xl overflow-hidden hover:shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] hover:border-red-500 transition-all duration-300 flex flex-col cursor-pointer h-full hover:scale-105">
               <div className="border-b border-red-500 bg-gradient-to-bl from-red-500 to-60% p-4 text-center">
                 <h3 className="text-primary font-bold text-xl">10 Laps</h3>
               </div>
@@ -157,7 +163,7 @@ export default function Home() {
             </Link>
 
             {/* Popular Package */}
-            <Link href="/book" className="border border-gray-900 rounded-xl overflow-hidden hover:shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] hover:border-red-500 transition-all duration-300 flex flex-col cursor-pointer h-full relative">
+            <Link href="/book" className="border border-gray-900 rounded-xl overflow-hidden hover:shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] hover:border-red-500 transition-all duration-300 flex flex-col cursor-pointer h-full relative hover:scale-105">
               <div className="absolute top-0 right-0 text-xs font-bold px-2 py-1 rounded-bl text-blue-50 border-l border-b">
                 POPULAR
               </div>
@@ -176,7 +182,7 @@ export default function Home() {
             </Link>
 
             {/* Premium Package */}
-            <Link href="/book" className="border border-gray-900 rounded-xl overflow-hidden hover:shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] hover:border-red-500 transition-all duration-300 flex flex-col cursor-pointer h-full relative">
+            <Link href="/book" className="border border-gray-900 rounded-xl overflow-hidden hover:shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] hover:border-red-500 transition-all duration-300 flex flex-col cursor-pointer h-full relative hover:scale-105">
               <div className="border-b border-red-500 bg-gradient-to-bl from-red-500 to-60% p-4 text-center">
                 <h3 className="text-primary font-bold text-xl">30 Laps</h3>
               </div>
@@ -192,7 +198,7 @@ export default function Home() {
             </Link>
 
             {/* Group Package */}
-            <Link href="/book" className="border border-gray-900 rounded-xl overflow-hidden hover:shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] hover:border-red-500 transition-all duration-300 flex flex-col cursor-pointer h-full">
+            <Link href="/book" className="border border-gray-900 rounded-xl overflow-hidden hover:shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] hover:border-red-500 transition-all duration-300 flex flex-col cursor-pointer h-full hover:scale-105">
               <div className="border-b border-red-500 bg-gradient-to-bl from-red-500 to-60% p-4 text-center">
                 <h3 className="text-primary font-bold text-xl">Group Package</h3>
               </div>
@@ -204,7 +210,6 @@ export default function Home() {
               </div>
             </Link>
           </div>
-
           <p className="text-center text-muted-foreground mt-8">
             * All packages include safety gear and a brief training session
           </p>
@@ -246,17 +251,17 @@ export default function Home() {
 
         {/* Testimonials */}
         <section className="space-y-6 px-6">
-          <h2 className="text-3xl font-bold text-center">What Our Racers Say</h2>
+          <h2 className="text-4xl font-extrabold text-center mb-10">What Our Racers Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="border shadow-[0_0_15px_2px_rgba(255,255,255,0.4)] p-6 rounded-lg space-y-4">
               <div className="flex items-center space-x-2">
                 <img
                   src="/testimonials/pfp1.png" // replace with your actual image path
-                  alt="Rahul S."
+                  alt="Anush Shetty"
                   className="h-10 w-10 rounded-full object-cover"
                 />
                 <div>
-                  <p className="font-medium">Rahul S.</p>
+                  <p className="font-medium">Anush Shetty</p>
                   <p className="text-sm text-muted-foreground">Professional Racer</p>
                 </div>
               </div>
@@ -266,11 +271,11 @@ export default function Home() {
               <div className="flex items-center space-x-2">
                 <img
                   src="/testimonials/pfp2.png" // replace with your actual image path
-                  alt="Rahul S."
+                  alt="Arya Bhat"
                   className="h-10 w-10 rounded-full object-cover"
                 />
                 <div>
-                  <p className="font-medium">Priya M.</p>
+                  <p className="font-medium">Arya Bhat</p>
                   <p className="text-sm text-muted-foreground">First-time Racer</p>
                 </div>
               </div>
@@ -280,12 +285,12 @@ export default function Home() {
               <div className="flex items-center space-x-2">
                 <img
                   src="/testimonials/pfp3.png" // replace with your actual image path
-                  alt="Rahul S."
+                  alt="Infosys"
                   className="h-10 w-10 rounded-full object-cover"
                 />
                 <div>
-                  <p className="font-medium">Team TechStars</p>
-                  <p className="text-sm text-muted-foreground">Corporate Event</p>
+                  <p className="font-medium">Soham Parekh</p>
+                  <p className="text-sm text-muted-foreground">CEO of Infosys</p>
                 </div>
               </div>
               <p className="italic">"We booked for a team outing and everyone had a blast. Great for team building!"</p>
@@ -293,14 +298,21 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Leaderboard */}
+        <Leaderboard 
+          racers={leaderboardData} 
+          title="🚀 Season Leaders" 
+          showViewAll={true}
+        />
+
         {/* Upcoming Events */}
         <UpcomingEvents/>
 
         {/* Map */}
-        <section className="space-y-6 pb-16">
-          <h2 className="text-4xl font-bold text-center">Find Us</h2>
+        <section className="space-y-6 pb-8">
+          <h2 className="text-4xl font-extrabold text-center">Find Us</h2>
           <div className="px-16">
-            <div className="w-full h-[320px] rounded-lg overflow-hidden border shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border-red-500">
+            <div className="w-full h-[280px] rounded-lg overflow-hidden border shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border-red-500">
               <iframe
                 className="w-full h-full"
                 src={mapUrl}
@@ -317,7 +329,7 @@ export default function Home() {
             </div>
             <div className="space-y-2">
               <h3 className="font-bold text-2xl">Phone</h3>
-              <p className="text-primary">+91 98765 43210</p>
+              <p className="text-primary">+91 70222 54378</p>
             </div>
             <div className="space-y-2">
               <h3 className="font-bold text-2xl">Email</h3>
@@ -325,6 +337,10 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <Partnerships/>
+        <WhatsAppButton />
+
       </main>
     </div>
   );

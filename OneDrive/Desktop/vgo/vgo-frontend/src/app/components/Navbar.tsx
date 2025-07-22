@@ -2,57 +2,121 @@
 import Image from "next/image";
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import { Menu, X } from 'lucide-react'
+import { useState } from 'react'
 
-{/* Navbar */}
 export default function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   return (
-    <nav className="sticky top-0 z-50 w-full backdrop-blur bg-gradient-to-br from-black to-red-500/60 supports-[backdrop-filter]:bg-black/60 border-b border-red-500 shadow-[0_2px_10px_0_rgba(255,0,0,0.4)]">
-        <div className="container flex h-16 items-center justify-start">
+    <nav className="sticky top-0 z-50 w-full backdrop-blur bg-gradient-to-br from-black to-red-500/60 supports-[backdrop-filter]:bg-black/60 border-b border-red-500 shadow-[0_2px_10px_0_rgba(255,0,0,0.4)] selection:bg-red-500">
+      <div className="container flex h-16 items-center justify-between px-4">
+        {/* Logo */}
+        <Link href="/" className="flex items-center space-x-2 z-50">
+          <Image
+            src="/vgoLogo.png"
+            alt="VGO Racing Logo"
+            width={140}
+            height={60}
+            className="object-contain w-auto h-10 md:h-12"
+          />
+        </Link>
 
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 pl-3">
-            <Image
-              src="/vgoLogo.png"
-              alt="VGO Racing Logo"
-              width={180} 
-              height={80}
-              className="object-contain"
-            />
+        {/* Desktop Nav Links */}
+        <div className="hidden md:flex items-center space-x-6 lg:space-x-10 ml-auto text-white">
+          <Link href="/book" className="text-sm font-medium hover:text-primary transition-colors">
+            Book Now
           </Link>
-
-          {/* Nav Links */}
-          <div className="flex items-center space-x-10 ml-160 text-white">
-            <Link href="/book" className="text-sm font-medium hover:text-primary">
-              Book Now
-            </Link>
-            <Link href="/competition" className="text-sm font-medium hover:text-primary">
-              Competition
-            </Link>
-            <Link href="/vgospace" className="text-sm font-medium hover:text-primary">
-              VGO-Space
-            </Link>
-            <Link href="/shop" className="text-sm font-medium hover:text-primary">
-              Shop
-            </Link>
-            <Link href="/contact" className="text-sm font-medium hover:text-primary">
-              Contact
-            </Link>
-            <div className="flex space-x-2">
-              <Button asChild variant="default">
-                <Link href="/login">Login</Link>
-              </Button>
-              <Button asChild variant="default">
-                <Link href="/register">Register</Link>
-              </Button>
-            </div>
+          <Link href="/competition" className="text-sm font-medium hover:text-primary transition-colors">
+            Competition
+          </Link>
+          <Link href="/vgospace" className="text-sm font-medium hover:text-primary transition-colors">
+            VGO-Space
+          </Link>
+          <Link href="/shop" className="text-sm font-medium hover:text-primary transition-colors">
+            Shop
+          </Link>
+          <Link href="/contact" className="text-sm font-medium hover:text-primary transition-colors">
+            Contact
+          </Link>
+          <div className="flex space-x-2 ml-4">
+            <Button asChild variant="default" size="sm">
+              <Link href="/login">Login</Link>
+            </Button>
+            <Button asChild variant="default" size="sm">
+              <Link href="/register">Register</Link>
+            </Button>
           </div>
         </div>
-      </nav>
+
+        {/* Mobile Menu Button */}
+        <button 
+          className="md:hidden text-white z-50"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {/* Mobile Menu */}
+        <div className={`fixed inset-0 bg-black/90 backdrop-blur-md z-40 flex flex-col items-center justify-center space-y-8 transition-all duration-300 ease-in-out
+          ${mobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}
+        >
+          <Link 
+            href="/book" 
+            className="text-xl font-medium text-white hover:text-primary transition-colors"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Book Now
+          </Link>
+          <Link 
+            href="/competition" 
+            className="text-xl font-medium text-white hover:text-primary transition-colors"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Competition
+          </Link>
+          <Link 
+            href="/vgospace" 
+            className="text-xl font-medium text-white hover:text-primary transition-colors"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            VGO-Space
+          </Link>
+          <Link 
+            href="/shop" 
+            className="text-xl font-medium text-white hover:text-primary transition-colors"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Shop
+          </Link>
+          <Link 
+            href="/contact" 
+            className="text-xl font-medium text-white hover:text-primary transition-colors"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Contact
+          </Link>
+          <div className="flex flex-col space-y-4 mt-8 w-full max-w-xs px-4">
+            <Button 
+              asChild 
+              variant="default" 
+              size="lg"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <Link href="/login">Login</Link>
+            </Button>
+            <Button 
+              asChild 
+              variant="default" 
+              size="lg"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <Link href="/register">Register</Link>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </nav>
   )
 }
-
-
-
-
-
-      

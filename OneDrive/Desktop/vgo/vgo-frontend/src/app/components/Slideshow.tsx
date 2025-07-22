@@ -51,7 +51,7 @@ export default function UpcomingEvents() {
   const next = () => setCurrent((prev) => (prev === events.length - 1 ? 0 : prev + 1));
 
   return (
-    <section className="relative py-16 overflow-hidden">
+    <section className="relative py-12 overflow-hidden">
       <h2 className="text-4xl font-extrabold text-center mb-12">Upcoming Events</h2>
       
       <div className="relative w-full max-w-6xl mx-auto h-[500px]">
