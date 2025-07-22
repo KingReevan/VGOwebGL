@@ -58,62 +58,67 @@ export default function Navbar() {
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Mobile Menu */}
-        <div className={`fixed inset-0 bg-black/90 backdrop-blur-md z-40 flex flex-col items-center justify-center space-y-8 transition-all duration-300 ease-in-out
+        {/* Mobile Menu - Fixed positioning with proper height */}
+        <div className={`fixed inset-0 bg-black/90 backdrop-blur-md z-40 flex flex-col items-center justify-center space-y-8 transition-all duration-300 ease-in-out pt-20 pb-10
           ${mobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}
+          style={{ height: '100vh', top: '0' }}
         >
-          <Link 
-            href="/book" 
-            className="text-xl font-medium text-white hover:text-primary transition-colors"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Book Now
-          </Link>
-          <Link 
-            href="/competition" 
-            className="text-xl font-medium text-white hover:text-primary transition-colors"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Competition
-          </Link>
-          <Link 
-            href="/vgospace" 
-            className="text-xl font-medium text-white hover:text-primary transition-colors"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            VGO-Space
-          </Link>
-          <Link 
-            href="/shop" 
-            className="text-xl font-medium text-white hover:text-primary transition-colors"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Shop
-          </Link>
-          <Link 
-            href="/contact" 
-            className="text-xl font-medium text-white hover:text-primary transition-colors"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Contact
-          </Link>
-          <div className="flex flex-col space-y-4 mt-8 w-full max-w-xs px-4">
-            <Button 
-              asChild 
-              variant="default" 
-              size="lg"
+          <div className="overflow-y-auto w-full flex flex-col items-center">
+            <Link 
+              href="/book" 
+              className="text-xl font-medium text-white hover:text-primary transition-colors py-3"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <Link href="/login">Login</Link>
-            </Button>
-            <Button 
-              asChild 
-              variant="default" 
-              size="lg"
+              Book Now
+            </Link>
+            <Link 
+              href="/competition" 
+              className="text-xl font-medium text-white hover:text-primary transition-colors py-3"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <Link href="/register">Register</Link>
-            </Button>
+              Competition
+            </Link>
+            <Link 
+              href="/vgospace" 
+              className="text-xl font-medium text-white hover:text-primary transition-colors py-3"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              VGO-Space
+            </Link>
+            <Link 
+              href="/shop" 
+              className="text-xl font-medium text-white hover:text-primary transition-colors py-3"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Shop
+            </Link>
+            <Link 
+              href="/contact" 
+              className="text-xl font-medium text-white hover:text-primary transition-colors py-3"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Contact
+            </Link>
+            <div className="flex flex-col space-y-4 mt-8 w-full max-w-xs px-4">
+              <Button 
+                asChild 
+                variant="default" 
+                size="lg"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full"
+              >
+                <Link href="/login">Login</Link>
+              </Button>
+              <Button 
+                asChild 
+                variant="default" 
+                size="lg"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full"
+              >
+                <Link href="/register">Register</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
