@@ -29,7 +29,7 @@ export default function Home() {
     
     <div className="min-h-screen selection:bg-red-500 bg-gray-900 text-primary">
 
-      <main className="container space-y-24">
+      <main className="space-y-24">
         {/* Hero Section */}
         <section
           className="relative flex flex-col items-center justify-center text-center space-y-6 min-h-[92vh] bg-cover bg-center bg-no-repeat"
