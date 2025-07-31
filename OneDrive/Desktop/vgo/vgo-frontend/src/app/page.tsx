@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { LightningBoltIcon, GaugeIcon, ShieldIcon, PersonIcon, MapPinIcon, LoopIcon, TimerIcon, SafetyIcon} from './components/icons';
 import Leaderboard from "./components/Leaderboard";
 import WhatsAppButton from "./components/WhatsAppButton";
-
+import PricingSection from './components/PricingSection';
 import UpcomingEvents from "./components/Slideshow";
 import { Partnerships } from "./components/Partnerships";
 
@@ -145,75 +145,7 @@ export default function Home() {
         </section>
 
         {/* Pricing */}
-        <section className="space-y-8 py-12">
-          <h2 className="text-4xl font-extrabold text-center">Pricing Packages</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-6xl px-4 sm:px-10 mx-auto">
-            {/* Basic Package */}
-            <Link href="/book" className="border border-gray-900 rounded-xl overflow-hidden hover:shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] hover:border-red-500 transition-all duration-300 flex flex-col cursor-pointer h-full hover:scale-100 sm:hover:scale-105">
-              <div className="border-b border-red-500 bg-gradient-to-bl from-red-500 to-60% p-4 text-center">
-                <h3 className="text-primary font-bold text-xl">10 Laps</h3>
-              </div>
-              <div className="p-6 flex flex-col flex-1 min-h-[250px] bg-gradient-to-tr from-red-500 to-60%">
-                <div className="text-center space-y-4 mb-6">
-                  <p className="text-4xl font-bold">₹700</p>
-                  <p className="text-primary mt-17">Perfect for beginners</p>
-                </div>
-              </div>
-            </Link>
-
-            {/* Popular Package */}
-            <Link href="/book" className="border border-gray-900 rounded-xl overflow-hidden hover:shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] hover:border-red-500 transition-all duration-300 flex flex-col cursor-pointer h-full relative hover:scale-100 sm:hover:scale-105">
-              <div className="absolute top-0 right-0 text-xs font-bold px-2 py-1 rounded-bl text-blue-50 border-l border-b">
-                POPULAR
-              </div>
-              <div className="border-b border-red-500 bg-gradient-to-bl from-red-500 to-60% p-4 text-center">
-                <h3 className="text-primary font-bold text-xl">20 Laps</h3>
-              </div>
-              <div className="p-6 flex flex-col flex-1 min-h-[250px] bg-gradient-to-tr from-red-500 to-60%">
-                <div className="text-center space-y-4 mb-6">
-                  <div>
-                    <p className="text-4xl font-bold">₹1200</p>
-                    <p className="text-sm text-green-600">Save ₹200</p>
-                  </div>
-                  <p className="text-primary mt-12">Great for regular racers</p>
-                </div>
-              </div>
-            </Link>
-
-            {/* Premium Package */}
-            <Link href="/book" className="border border-gray-900 rounded-xl overflow-hidden hover:shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] hover:border-red-500 transition-all duration-300 flex flex-col cursor-pointer h-full relative hover:scale-100 sm:hover:scale-105">
-              <div className="border-b border-red-500 bg-gradient-to-bl from-red-500 to-60% p-4 text-center">
-                <h3 className="text-primary font-bold text-xl">30 Laps</h3>
-              </div>
-              <div className="p-6 flex flex-col flex-1 min-h-[250px] bg-gradient-to-tr from-red-500 to-60%">
-                <div className="text-center space-y-4 mb-6">
-                  <div>
-                    <p className="text-4xl font-bold">₹1600</p>
-                    <p className="text-sm text-green-600">Save ₹500</p>
-                  </div>
-                  <p className="text-primary mt-12">For the ultimate experience</p>
-                </div>
-              </div>
-            </Link>
-
-            {/* Group Package */}
-            <Link href="/book" className="border border-gray-900 rounded-xl overflow-hidden hover:shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] hover:border-red-500 transition-all duration-300 flex flex-col cursor-pointer h-full hover:scale-100 sm:hover:scale-105">
-              <div className="border-b border-red-500 bg-gradient-to-bl from-red-500 to-60% p-4 text-center">
-                <h3 className="text-primary font-bold text-xl">Group Package</h3>
-              </div>
-              <div className="p-6 flex flex-col flex-1 min-h-[250px] bg-gradient-to-tr from-red-500 to-60%">
-                <div className="text-center space-y-4 mb-6">
-                  <p className="text-4xl font-bold">₹500<span className="text-lg">/person</span></p>
-                  <p className="text-primary mt-17">4+ people, 10 laps each</p>
-                </div>
-              </div>
-            </Link>
-          </div>
-          <p className="text-center text-muted-foreground mt-8">
-            * All packages include safety gear and a brief training session
-          </p>
-        </section>
+        <PricingSection/>
 
         {/* Gallery */}
         <section className="space-y-6 px-4 py-12 bg-black/5 dark:bg-white/5 rounded-xl">
