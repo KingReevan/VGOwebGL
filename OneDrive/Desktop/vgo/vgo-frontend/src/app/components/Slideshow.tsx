@@ -113,13 +113,13 @@ export default function UpcomingEvents() {
         {/* Navigation Arrows */}
         <button
           onClick={prev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-white/85 border shadow-md hover:bg-white text-black transition-all cursor-pointer"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-45 p-3 rounded-full bg-white/85 border shadow-md hover:bg-white text-black transition-all cursor-pointer"
         >
           <ChevronLeft size={24} />
         </button>
         <button
           onClick={next}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-white/85 border shadow-md hover:bg-white text-black transition-all cursor-pointer"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-45 p-3 rounded-full bg-white/85 border shadow-md hover:bg-white text-black transition-all cursor-pointer"
         >
           <ChevronRight size={24} />
         </button>
