@@ -99,7 +99,7 @@ function PricingCard({
           {/* Spacer to align descriptions */}
           <div className="flex-1" />
 
-          <p className="text-primary">{description}</p>
+          <p className="text-primary mb-2">{description}</p>
         </div>
       </div>
     </Link>
