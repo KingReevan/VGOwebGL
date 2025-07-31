@@ -3,9 +3,9 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 selection:bg-red-500">
+    <footer className="w-full bg-gray-900 text-gray-300 selection:bg-red-500">
       <div className="py-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto px-4">
           {/* Policies & Legal */}
           <div className="space-y-3">
             <h3 className="text-white font-bold text-lg">Policies</h3>
@@ -44,8 +44,6 @@ export default function Footer() {
             <ul className="space-y-2">
               <li><Link href="/about" className="hover:text-white">About Us</Link></li>
               <li><Link href="/contact" className="hover:text-white">Contact Us</Link></li>
-              <li className="text-white">Email: info@vgoracing.com</li>
-              <li className="text-white">Phone: +91 98765 43210</li>
             </ul>
           </div>
         </div>
@@ -73,7 +71,7 @@ export default function Footer() {
           </div>
 
           {/* Social Media */}
-          <div className="flex space-x-5 mt-2 md:mt-0 mr-8">
+          <div className="flex space-x-5 mt-2 md:mt-0">
             <Link href="#" className="text-gray-400 hover:text-white">
               <span className="sr-only">Facebook</span>
               <svg className="h-10 w-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
