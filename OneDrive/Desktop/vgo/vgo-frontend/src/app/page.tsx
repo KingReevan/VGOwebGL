@@ -8,6 +8,7 @@ import WhatsAppButton from "./components/WhatsAppButton";
 import PricingSection from './components/PricingSection';
 import UpcomingEvents from "./components/Slideshow";
 import { Partnerships } from "./components/Partnerships";
+import Gallery from "./components/Gallery";
 
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 const location = "Vanora Robots, Mangalore";
@@ -148,38 +149,7 @@ export default function Home() {
         <PricingSection/>
 
         {/* Gallery */}
-        <section className="space-y-6 px-4 py-12 bg-black/5 dark:bg-white/5 rounded-xl">
-          <h2 className="text-4xl font-extrabold text-center tracking-wide bg-gradient-to-r from-red-500 to-red-400 text-transparent bg-clip-text animate-pulse">Pick Up the Pace with VGO</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4">
-            <div className="relative aspect-video overflow-hidden rounded-lg shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
-              <Image src="/gallery/staringDriver.png" alt="Racing 1" fill className="object-cover hover:scale-105 transition-transform" />
-            </div>
-            <div className="relative aspect-video overflow-hidden rounded-lg shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
-              <Image src="/gallery/driver.jpg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
-            </div>
-            <div className="relative aspect-video overflow-hidden rounded-lg shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
-              <Image src="/gallery/largeTrack.jpg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
-            </div>
-            <div className="relative aspect-video overflow-hidden rounded-lg shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
-              <Image src="/gallery/gallery1.jpg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
-            </div>
-            <div className="relative aspect-video overflow-hidden rounded-lg shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
-              <Image src="/gallery/gallery2.png" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
-            </div>
-            <div className="relative aspect-video overflow-hidden rounded-lg shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
-              <Image src="/gallery/gallery3.jpeg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
-            </div>
-            <div className="relative aspect-video overflow-hidden rounded-lg shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
-              <Image src="/gallery/gallery4.jpg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
-            </div>
-            <div className="relative aspect-video overflow-hidden rounded-lg shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
-              <Image src="/gallery/gallery5.png" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
-            </div>
-            <div className="relative aspect-video overflow-hidden rounded-lg shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
-              <Image src="/gallery/gallery6.jpg" alt="Racing 2" fill className="object-cover hover:scale-105 transition-transform" />
-            </div>
-          </div>
-        </section>
+        <Gallery/>
 
         {/* Testimonials */}
         <section className="space-y-6 px-6">
