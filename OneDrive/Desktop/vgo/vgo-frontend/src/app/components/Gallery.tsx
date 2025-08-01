@@ -15,10 +15,11 @@ export default function Gallery() {
     '/gallery/gallery10.jpeg',
     '/gallery/gallery11.jpg',
     '/gallery/gallery12.png',
+    
   ];
 
   // Duplicate images to create seamless looping
-  const duplicatedImages = [...galleryImages, ...galleryImages];
+  const duplicatedImages = [...galleryImages, ...galleryImages, ...galleryImages];
 
   return (
     <section className="px-4 py-12 bg-black/5 dark:bg-white/5 rounded-xl overflow-hidden">
