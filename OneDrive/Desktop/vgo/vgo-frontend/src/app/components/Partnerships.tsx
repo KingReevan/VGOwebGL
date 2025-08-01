@@ -21,7 +21,7 @@ export function Partnerships() {
         <div className="absolute bottom-1/3 right-1/4 w-60 h-60 rounded-full bg-secondary blur-3xl"></div>
       </div>
 
-      <div className="container relative z-10">
+      <div className="relative z-10">
         <h2 className="text-4xl font-extrabold text-center mb-4 text-white">
           Our Partners and Sponsors
         </h2>

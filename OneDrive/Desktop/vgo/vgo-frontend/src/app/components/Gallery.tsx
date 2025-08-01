@@ -22,7 +22,7 @@ export default function Gallery() {
   const duplicatedImages = [...galleryImages, ...galleryImages, ...galleryImages];
 
   return (
-    <section className="px-4 py-12 bg-black/5 dark:bg-white/5 rounded-xl overflow-hidden">
+    <section className="py-12 bg-black/5 dark:bg-white/5 rounded-xl overflow-hidden">
       <h2 className="text-3xl md:text-4xl font-extrabold text-center tracking-wide mb-8 md:mb-12 bg-gradient-to-r from-red-500 to-red-400 text-transparent bg-clip-text animate-pulse">
         Pick Up the Pace with VGO
       </h2>
