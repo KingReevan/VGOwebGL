@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-gray-900 text-gray-300 selection:bg-red-500">
       <div className="py-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto px-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto px-4">
           {/* Policies & Legal */}
           <div className="space-y-3">
             <h3 className="text-white font-bold text-lg">Policies</h3>
@@ -52,14 +52,14 @@ export default function Footer() {
         <div className="border-t border-red-500 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] my-6"></div>
 
         {/* Bottom Footer */}
-        <div className="flex flex-col md:flex-row justify-between items-center max-w-6xl mx-auto px-4">
+        <div className="flex flex-col gap-y-6 md:flex-row justify-between items-center max-w-6xl mx-auto px-4">
 
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <Image
               src="/vgoLogo.png"
               alt="VGO Racing Logo"
-              width={180} 
+              width={150} 
               height={80}
               className="object-contain"
             />

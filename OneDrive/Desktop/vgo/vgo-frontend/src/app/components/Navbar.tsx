@@ -10,7 +10,7 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 w-full backdrop-blur bg-gradient-to-br from-black to-red-500/60 supports-[backdrop-filter]:bg-black/60 border-b border-red-500 shadow-[0_2px_10px_0_rgba(255,0,0,0.4)] selection:bg-red-500">
-      <div className="container flex h-16 items-center justify-between px-4">
+      <div className="container flex h-18 items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2 z-50">
           <Image

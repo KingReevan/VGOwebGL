@@ -9,6 +9,8 @@ import PricingSection from './components/PricingSection';
 import UpcomingEvents from "./components/Slideshow";
 import { Partnerships } from "./components/Partnerships";
 import Gallery from "./components/Gallery";
+import CarAndTrackDetails from "./components/CarAndTrackDetails";
+import Testimonials from "./components/Testimonials";
 
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 const location = "Vanora Robots, Mangalore";
@@ -58,75 +60,7 @@ export default function Home() {
 
 
         {/* Car & Track Details */}
-        <section className="space-y-12">
-          
-          {/* Go-Kart Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center px-5">
-            <div className="order-2 lg:order-1 space-y-6 pl-25">
-              <h3 className="text-4xl font-extrabold text-primary">State-of-the-Art Electric Go-Karts</h3>
-              <ul className="space-y-4 text-2xl">
-                <li className="flex items-start gap-3">
-                  <LightningBoltIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>4000W electric motors with instant torque delivery</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <GaugeIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>Adjustable speed settings (20-60 km/h) for all skill levels</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <ShieldIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>Roll cages and 5-point harnesses for maximum safety</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <PersonIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>Adjustable seats to accommodate drivers from 140cm to 195cm</span>
-                </li>
-              </ul>
-            </div>
-            <div className="order-1 lg:order-2 relative aspect-video rounded-xl overflow-hidden shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
-              <Image 
-                src="/hero-bg.jpeg" 
-                alt="High-performance electric go-kart"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          </div>
-
-          {/* Track Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-16 px-5 justify-evenly">
-            <div className="relative aspect-video rounded-xl overflow-hidden shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500">
-              <Image 
-                src="/bigTrack.jpg" 
-                alt="Championship-level go-kart track"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="space-y-6 pl-25">
-              <h3 className="text-4xl font-extrabold text-primary">Championship-Level Track</h3>
-              <ul className="space-y-4 text-primary text-2xl">
-                <li className="flex items-start gap-3">
-                  <MapPinIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>500 meter professionally designed circuit</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <LoopIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>12 challenging turns with elevation changes</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <TimerIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>Professional timing system with lap analysis</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <SafetyIcon className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                  <span>FIA-approved safety barriers and runoff areas</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
+        <CarAndTrackDetails/>
 
         {/* Timings */}
         <section className="py-8 border-y-3 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border-red-500">
@@ -152,58 +86,12 @@ export default function Home() {
         <Gallery/>
 
         {/* Testimonials */}
-        <section className="space-y-6 px-6">
-          <h2 className="text-4xl font-extrabold text-center mb-10">What Our Racers Say</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="border shadow-[0_0_15px_2px_rgba(255,255,255,0.4)] p-6 rounded-lg space-y-4">
-              <div className="flex items-center space-x-2">
-                <img
-                  src="/testimonials/pfp1.png" // replace with your actual image path
-                  alt="Anush Shetty"
-                  className="h-10 w-10 rounded-full object-cover"
-                />
-                <div>
-                  <p className="font-medium">Anush Shetty</p>
-                  <p className="text-sm text-muted-foreground">Professional Racer</p>
-                </div>
-              </div>
-              <p className="italic">"The best track in the city! The karts are well-maintained and the staff is super helpful."</p>
-            </div>
-            <div className="border shadow-[0_0_15px_2px_rgba(255,255,255,0.4)] p-6 rounded-lg space-y-4">
-              <div className="flex items-center space-x-2">
-                <img
-                  src="/testimonials/pfp2.png" // replace with your actual image path
-                  alt="Arya Bhat"
-                  className="h-10 w-10 rounded-full object-cover"
-                />
-                <div>
-                  <p className="font-medium">Arya Bhat</p>
-                  <p className="text-sm text-muted-foreground">First-time Racer</p>
-                </div>
-              </div>
-              <p className="italic">"I was nervous at first but the instructors made me feel so comfortable. Can't wait to come back!"</p>
-            </div>
-            <div className="border shadow-[0_0_15px_2px_rgba(255,255,255,0.4)] p-6 rounded-lg space-y-4">
-              <div className="flex items-center space-x-2">
-                <img
-                  src="/testimonials/pfp3.png" // replace with your actual image path
-                  alt="Infosys"
-                  className="h-10 w-10 rounded-full object-cover"
-                />
-                <div>
-                  <p className="font-medium">Soham Parekh</p>
-                  <p className="text-sm text-muted-foreground">CEO of Infosys</p>
-                </div>
-              </div>
-              <p className="italic">"We booked for a team outing and everyone had a blast. Great for team building!"</p>
-            </div>
-          </div>
-        </section>
+        <Testimonials/>
 
         {/* Leaderboard */}
         <Leaderboard 
           racers={leaderboardData} 
-          title="🚀 Season Leaders" 
+          title="Season Leaders" 
           showViewAll={true}
         />
 
@@ -215,7 +103,7 @@ export default function Home() {
           <h2 className="text-4xl font-extrabold text-center">Find Us</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 grid-flow-row-dense">
             <div className="col-span-2">
-              <div className="w-full h-[280px] md:h-[300px] overflow-hidden border shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border-red-500">
+              <div className="w-full h-[280px] md:h-[300px] overflow-hidden border-y shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border-red-500">
                 <iframe
                   className="w-full h-full"
                   src={mapUrl}
@@ -225,7 +113,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="space-y-4 text-center py-6 px-8 bg-gradient-to-r from-red-700 via-rose-950 to-red-700 border-y shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border-red-500">
+            <div className="space-y-5 text-center py-6 px-8 bg-gradient-to-r from-red-700 via-rose-950 to-red-700 border-y shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border-red-500">
               <div className="space-y-2">
                 <h3 className="font-bold text-2xl">Address</h3>
                 <p className="text-primary">Bharat Mall, Lalbagh</p>

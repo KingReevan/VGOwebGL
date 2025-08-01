@@ -17,7 +17,7 @@ interface LeaderboardProps {
 
 export default function Leaderboard({ 
   racers, 
-  title = "🏆 Top Racers", 
+  title = "Top Racers", 
   showViewAll = true 
 }: LeaderboardProps) {
   return (

@@ -73,26 +73,6 @@ export function Partnerships() {
             );
           })}
         </div>
-
-        {/* Mobile Grid Fallback */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12 md:hidden">
-          {sponsors.map((sponsor) => (
-            <Link
-              key={sponsor.id}
-              href={sponsor.url}
-              className="flex items-center justify-center p-4 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors h-32"
-            >
-              <div className="relative w-full h-full">
-                <Image
-                  src={sponsor.logo}
-                  alt={sponsor.name}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            </Link>
-          ))}
-        </div>
       </div>
     </section>
   );
