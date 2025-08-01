@@ -51,7 +51,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-white z-52"
+          className="md:hidden text-white z-52 cursor-pointer"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -59,7 +59,8 @@ export default function Navbar() {
         </button>
 
         {/* Mobile Menu - Fixed positioning with proper height */}
-        <div className={`fixed inset-0 bg-black/90 backdrop-blur-md z-51 flex flex-col items-center justify-center space-y-8 transition-all duration-300 ease-in-out pt-20 pb-10
+        <div className={`fixed inset-0 bg-gradient-to-b from-black via-red-950 to-black
+           backdrop-blur-md z-51 flex flex-col items-center justify-center space-y-8 transition-all duration-300 ease-in-out pt-20 pb-10
           ${mobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}
           style={{ height: '100vh', top: '0' }}
         >
@@ -120,6 +121,13 @@ export default function Navbar() {
               </Button>
             </div>
           </div>
+          <div className="absolute bottom-6 flex items-center space-x-4 text-white opacity-50 text-sm">
+            <span>+91 7022254378</span>
+            <span>•</span>
+            <Link href="mailto:info@vgoracing.com">info@vgoracing.com</Link>
+          </div>
+          <div className="absolute top-0 w-full h-1 bg-red-500 shadow-red-500 shadow-md" />
+
         </div>
       </div>
     </nav>
