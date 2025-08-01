@@ -103,7 +103,7 @@ export default function CarAndTrackDetails() {
 
                 {/* Text Content - Mobile first order */}
                 <div className="flex flex-col items-center space-y-4 order-2 lg:order-3 row-span-2 h-full shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 rounded-xl pt-4 bg-gradient-to-t from-red-500/60 from-1%">
-                <h3 className="text-3xl font-extrabold text-primary pb-10">
+                <h3 className="text-3xl font-extrabold text-primary pb-10 pt-2">
                     Advanced Electric Go-Karts
                 </h3>
                 <ul className="space-y-5 sm:space-y-14 text-lg sm:text-xl lg:text-2xl px-4">
@@ -127,8 +127,8 @@ export default function CarAndTrackDetails() {
                 </div>
 
                 {/* Text Content - Mobile first order */}
-                <div className="flex flex-col items-center space-y-4 lg:space-y-6 lg:pl-8 xl:pl-12 row-span-2 lg:order-3 h-full shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 rounded-xl bg-gradient-to-b from-red-500/60 from-1%">
-                <h3 className="text-3xl font-extrabold text-primary pb-10">
+                <div className="flex flex-col items-center space-y-4 lg:space-y-6 row-span-2 lg:order-3 h-full shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 rounded-xl bg-gradient-to-b from-red-500/60 from-1%">
+                <h3 className="text-3xl font-extrabold text-primary py-10">
                     Championship-Level Track
                 </h3>
                 <ul className="space-y-3 sm:space-y-14 text-lg sm:text-xl lg:text-2xl px-4">

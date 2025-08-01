@@ -64,7 +64,7 @@ export default function Navbar() {
           ${mobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}
           style={{ height: '100vh', top: '0' }}
         >
-          <div className="overflow-y-auto w-full flex flex-col items-center">
+          <div className="overflow-y-auto w-full flex flex-col items-center space-y-6">
             <Link 
               href="/book" 
               className="text-xl font-medium text-white hover:text-primary transition-colors py-3"

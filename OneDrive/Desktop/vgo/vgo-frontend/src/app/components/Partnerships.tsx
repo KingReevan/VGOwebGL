@@ -54,7 +54,7 @@ export function Partnerships() {
               <Link
                 key={sponsor.id}
                 href={sponsor.url}
-                className="absolute w-24 h-24 flex items-center justify-center rounded-full bg-gray-800 border-2 border-gray-700 hover:border-primary transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20"
+                className="absolute w-24 h-24 flex items-center justify-center rounded-full bg-[#A9A9A9] border-2 border-[#444444] hover:border-primary transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20"
                 style={{
                   left: `calc(50% + ${radius * x}px)`,
                   top: `calc(50% + ${radius * y}px)`,

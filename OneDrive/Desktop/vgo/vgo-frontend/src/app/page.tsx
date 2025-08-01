@@ -44,7 +44,7 @@ export default function Home() {
           
           {/* Hero Content */}
           <div className="relative z-10 px-4">
-            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl text-primary">
+            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl text-primary">
               Experience the Thrill of VGO Racing
             </h1>
             <p className="text-lg max-w-3xl mt-4 text-primary mx-auto">
@@ -64,7 +64,7 @@ export default function Home() {
 
         {/* Timings */}
         <section className="py-8 border-y-3 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border-red-500">
-          <div className="container">
+          
             <h2 className="text-4xl font-extrabold text-center mb-6">Operating Hours</h2>
             <div className="flex justify-center gap-16">
               <div className="text-center">
@@ -76,7 +76,6 @@ export default function Home() {
                 <p className="text-lg">10:00 AM – 11:00 PM</p>
               </div>
             </div>
-          </div>
         </section>
 
         {/* Pricing */}

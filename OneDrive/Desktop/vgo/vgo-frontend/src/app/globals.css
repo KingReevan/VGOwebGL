@@ -1,5 +1,4 @@
-@tailwind base;
-@tailwind components;
+
 @tailwind utilities;
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -139,16 +138,20 @@
   100% { transform: translateX(-100%); }
 }
 
-.animate-scroll-left {
-  animation: scrollLeft 40s linear infinite;
+
+.animate-scroll {
+  animation: scrollLeft 20s linear infinite;
 }
 
-.animate-scroll-right {
-  animation: scrollRight 40s linear infinite;
+.animate-scroll-reverse {
+  animation: scrollLeft 20s linear infinite reverse;
 }
 
-.animate-scroll-mobile {
-  animation: scrollMobile 30s linear infinite;
+@keyframes scrollLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
-
-
