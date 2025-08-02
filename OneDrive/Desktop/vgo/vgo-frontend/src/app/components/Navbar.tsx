@@ -67,35 +67,35 @@ export default function Navbar() {
           <div className="overflow-y-auto w-full flex flex-col items-center space-y-6">
             <Link 
               href="/book" 
-              className="text-xl font-medium text-white hover:text-primary transition-colors py-3"
+              className="text-xl font-medium text-white hover:text-red-500 hover:bg-white/85 transition-colors py-3 px-10 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 rounded-xl"
               onClick={() => setMobileMenuOpen(false)}
             >
               Book Now
             </Link>
             <Link 
               href="/competition" 
-              className="text-xl font-medium text-white hover:text-primary transition-colors py-3"
+              className="text-xl font-medium text-white hover:text-red-500 hover:bg-white/85 transition-colors py-3 px-10 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 rounded-xl"
               onClick={() => setMobileMenuOpen(false)}
             >
               Competition
             </Link>
             <Link 
               href="/vgospace" 
-              className="text-xl font-medium text-white hover:text-primary transition-colors py-3"
+              className="text-xl font-medium text-white hover:text-red-500 hover:bg-white/85 transition-colors py-3 px-10 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 rounded-xl"
               onClick={() => setMobileMenuOpen(false)}
             >
               VGO-Space
             </Link>
             <Link 
               href="/shop" 
-              className="text-xl font-medium text-white hover:text-primary transition-colors py-3"
+              className="text-xl font-medium text-white hover:text-red-500 hover:bg-white/85 transition-colors py-3 px-10 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 rounded-xl"
               onClick={() => setMobileMenuOpen(false)}
             >
               Shop
             </Link>
             <Link 
               href="/contact" 
-              className="text-xl font-medium text-white hover:text-primary transition-colors py-3"
+              className="text-xl font-medium text-white hover:text-red-500 hover:bg-white/85 transition-colors py-3 px-10 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 rounded-xl"
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact
