@@ -59,24 +59,8 @@ export default function Home() {
         </section>
 
 
-        {/* Car & Track Details */}
+        {/* Car, Track and Operating Hours Details */}
         <CarAndTrackDetails/>
-
-        {/* Timings */}
-        <section className="py-8 border-y-3 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border-red-500">
-          
-            <h2 className="text-4xl font-extrabold text-center mb-6">Operating Hours</h2>
-            <div className="flex justify-center gap-16">
-              <div className="text-center">
-                <h3 className="text-xl font-medium text-primary">Weekdays</h3>
-                <p className="text-lg">12:00 PM – 10:00 PM</p>
-              </div>
-              <div className="text-center">
-                <h3 className="text-xl font-medium text-primary">Weekends</h3>
-                <p className="text-lg">10:00 AM – 11:00 PM</p>
-              </div>
-            </div>
-        </section>
 
         {/* Pricing */}
         <PricingSection/>

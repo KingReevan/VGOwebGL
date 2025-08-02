@@ -59,7 +59,7 @@ export default function Navbar() {
         </button>
 
         {/* Mobile Menu - Fixed positioning with proper height */}
-        <div className={`fixed inset-0 bg-gradient-to-b from-black via-red-950 to-black
+        <div className={`md:hidden fixed inset-0 bg-gradient-to-b from-black via-red-950 to-black
            backdrop-blur-md z-51 flex flex-col items-center justify-center space-y-8 transition-all duration-300 ease-in-out pt-20 pb-10
           ${mobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}
           style={{ height: '100vh', top: '0' }}
