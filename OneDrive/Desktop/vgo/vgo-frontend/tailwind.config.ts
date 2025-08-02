@@ -23,6 +23,9 @@ const config: Config = {
         'scroll-right': 'scroll-right 65s linear infinite',
         'scroll-mobile': 'scroll-left 45s linear infinite',
       },
+      fontFamily: {
+        sans: ['var(--font-rajdhani)', 'sans-serif'],
+      },
     },
   },
   plugins: [],
