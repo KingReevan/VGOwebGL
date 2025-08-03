@@ -4,8 +4,8 @@ import { LightningBoltIcon, GaugeIcon, ShieldIcon, PersonIcon, MapPinIcon, LoopI
 
 export default function CarAndTrackDetails() {
   return (
-    <section className="space-y-12 px-4 sm:px-6 lg:px-8 py-12">
-        <div className="md:hidden">
+    <section className="space-y-12 px-4 sm:px-6 lg:px-8 py-6">
+        <div className="xl:hidden">
             {/* Go-Kart Section */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 {/* Text Content - Mobile first order */}
@@ -82,11 +82,27 @@ export default function CarAndTrackDetails() {
                 </ul>
                 </div>
             </div>
+
+            <div className="shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 rounded-xl pb-4 mt-14">
+                <div className='border-b border-red-500 bg-gradient-to-r from-red-500 to-rose-950 text-white font-bold overflow-hidden rounded-t-xl mb-4 py-2'>
+                    <h2 className="text-2xl font-extrabold text-center mb-2">Operating Hours</h2>
+                </div>
+                <div className="flex justify-center gap-16">
+                    <div className="text-center">
+                    <h3 className="text-xl font-medium text-primary">Weekdays</h3>
+                    <p className="text-sm">12:00 PM – 10:00 PM</p>
+                    </div>
+                    <div className="text-center">
+                    <h3 className="text-xl font-medium text-primary">Weekends</h3>
+                    <p className="text-sm">10:00 AM – 11:00 PM</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
         {/*More Aesthetic Grid layout*/ }
-        <div className="md:block">
+        <div className="hidden md:block">
             {/* Go-Kart Section */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center grid-flow-row-dense">
 
@@ -171,7 +187,7 @@ export default function CarAndTrackDetails() {
                     src="/asianRacer.webp" 
                     alt="Championship-level go-kart track"
                     fill
-                    className="object-cover"
+                    className="object-scale-down"
                 />
                 </div>
             </div>

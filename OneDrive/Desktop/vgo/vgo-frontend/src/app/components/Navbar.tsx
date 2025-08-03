@@ -60,42 +60,42 @@ export default function Navbar() {
 
         {/* Mobile Menu - Fixed positioning with proper height */}
         <div className={`md:hidden fixed inset-0 bg-gradient-to-b from-black via-red-950 to-black
-           backdrop-blur-md z-51 flex flex-col items-center justify-center space-y-8 transition-all duration-300 ease-in-out pt-20 pb-10
+           backdrop-blur-md z-51 flex flex-col items-center justify-center space-y-8 transition-all duration-300 ease-in-out pt-10 pb-10
           ${mobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}
           style={{ height: '100vh', top: '0' }}
         >
           <div className="overflow-y-auto w-full flex flex-col items-center space-y-6">
             <Link 
               href="/book" 
-              className="text-xl font-medium text-white hover:text-red-500 hover:bg-white/85 transition-colors py-3 px-10 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 rounded-xl"
+              className="w-full max-w-xs text-center text-xl font-medium text-white hover:text-red-500 hover:bg-white/85 transition-colors py-4 px-10 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 rounded-xl"
               onClick={() => setMobileMenuOpen(false)}
             >
               Book Now
             </Link>
             <Link 
               href="/competition" 
-              className="text-xl font-medium text-white hover:text-red-500 hover:bg-white/85 transition-colors py-3 px-10 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 rounded-xl"
+              className="w-full max-w-xs text-center text-xl font-medium text-white hover:text-red-500 hover:bg-white/85 transition-colors py-4 px-10 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 rounded-xl"
               onClick={() => setMobileMenuOpen(false)}
             >
               Competition
             </Link>
             <Link 
               href="/vgospace" 
-              className="text-xl font-medium text-white hover:text-red-500 hover:bg-white/85 transition-colors py-3 px-10 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 rounded-xl"
+              className="w-full max-w-xs text-center text-xl font-medium text-white hover:text-red-500 hover:bg-white/85 transition-colors py-4 px-10 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 rounded-xl"
               onClick={() => setMobileMenuOpen(false)}
             >
               VGO-Space
             </Link>
             <Link 
               href="/shop" 
-              className="text-xl font-medium text-white hover:text-red-500 hover:bg-white/85 transition-colors py-3 px-10 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 rounded-xl"
+              className="w-full max-w-xs text-center text-xl font-medium text-white hover:text-red-500 hover:bg-white/85 transition-colors py-4 px-10 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 rounded-xl"
               onClick={() => setMobileMenuOpen(false)}
             >
               Shop
             </Link>
             <Link 
               href="/contact" 
-              className="text-xl font-medium text-white hover:text-red-500 hover:bg-white/85 transition-colors py-3 px-10 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 rounded-xl"
+              className="w-full max-w-xs text-center text-xl font-medium text-white hover:text-red-500 hover:bg-white/85 transition-colors py-4 px-10 shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 rounded-xl"
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact
@@ -121,7 +121,7 @@ export default function Navbar() {
               </Button>
             </div>
           </div>
-          <div className="absolute bottom-6 flex items-center space-x-4 text-white opacity-50 text-sm">
+          <div className="absolute bottom-16 flex items-center space-x-4 text-white opacity-50 text-sm">
             <span>+91 7022254378</span>
             <span>•</span>
             <Link href="mailto:info@vgoracing.com">info@vgoracing.com</Link>

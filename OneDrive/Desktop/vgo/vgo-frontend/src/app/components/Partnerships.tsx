@@ -22,10 +22,10 @@ export function Partnerships() {
       </div>
 
       <div className="relative z-10">
-        <h2 className="text-4xl font-extrabold text-center mb-4 text-white">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-4 text-white">
           Our Partners and Sponsors
         </h2>
-        <p className="text-center text-gray-400 max-w-2xl mx-auto mb-12">
+        <p className="px-4 text-center text-gray-400 max-w-2xl mx-auto mb-12">
           Proudly collaborating with industry leaders to bring you the best racing experience
         </p>
 
