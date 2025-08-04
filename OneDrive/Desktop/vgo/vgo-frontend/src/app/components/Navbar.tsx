@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image";
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/app/components/button'
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
@@ -59,7 +59,7 @@ export default function Navbar() {
         </button>
 
         {/* Mobile Menu - Fixed positioning with proper height */}
-        <div className={`md:hidden fixed inset-0 bg-gradient-to-b from-black via-red-950 to-black
+        <div className={`md:hidden fixed inset-0 bg-gradient-to-b from-red-950 via-black to-red-950
            backdrop-blur-md z-51 flex flex-col items-center justify-center space-y-8 transition-all duration-300 ease-in-out pt-10 pb-10
           ${mobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}`}
           style={{ height: '100vh', top: '0' }}
@@ -103,7 +103,7 @@ export default function Navbar() {
             <div className="flex flex-col space-y-4 mt-8 w-full max-w-xs px-4">
               <Button 
                 asChild 
-                variant="default" 
+                variant="secondary" 
                 size="lg"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full"
@@ -126,7 +126,6 @@ export default function Navbar() {
             <span>•</span>
             <Link href="mailto:info@vgoracing.com">info@vgoracing.com</Link>
           </div>
-          <div className="absolute top-0 w-full h-1 bg-red-500 shadow-red-500 shadow-md" />
 
         </div>
       </div>

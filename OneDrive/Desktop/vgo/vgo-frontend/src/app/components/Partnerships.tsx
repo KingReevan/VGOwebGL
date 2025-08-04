@@ -38,6 +38,7 @@ export function Partnerships() {
                 src="/vgoLogo.png"
                 alt="VGO Racing"
                 fill
+                sizes="(max-width: 768px) 120px, 180px"
                 className="object-contain"
               />
             </div>
@@ -51,9 +52,8 @@ export function Partnerships() {
             const y = Math.sin((angle * Math.PI) / 180);
 
             return (
-              <Link
+              <div
                 key={sponsor.id}
-                href={sponsor.url}
                 className="absolute w-24 h-24 flex items-center justify-center rounded-full bg-gray-800 border-2 border-white/40 hover:border-primary transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20"
                 style={{
                   left: `calc(50% + ${radius * x}px)`,
@@ -69,7 +69,7 @@ export function Partnerships() {
                     className="object-contain"
                   />
                 </div>
-              </Link>
+              </div>
             );
           })}
         </div>

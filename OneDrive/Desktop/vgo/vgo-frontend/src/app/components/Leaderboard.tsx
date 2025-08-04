@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Modal from './Modal'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/app/components/button'
 
 interface Racer {
   position: number

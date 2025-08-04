@@ -40,6 +40,7 @@ export default function Gallery() {
                   src={src}
                   alt={`Gallery image ${index + 1}`}
                   fill
+                  sizes="(max-width: 768px) 100vw, 640px"
                   className="object-cover hover:scale-110 transition-transform duration-300"
                 />
               </div>
@@ -60,6 +61,7 @@ export default function Gallery() {
                     src={src}
                     alt={`Gallery image ${index + 1}`}
                     fill
+                    sizes="(max-width: 768px) 100vw, 640px"
                     className="object-cover hover:scale-110 transition-transform duration-300"
                   />
                 </div>
@@ -78,6 +80,7 @@ export default function Gallery() {
                     src={src}
                     alt={`Gallery image ${index + 1}`}
                     fill
+                    sizes="(max-width: 768px) 100vw, 640px"
                     className="object-cover hover:scale-110 transition-transform duration-300"
                   />
                 </div>
