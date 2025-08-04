@@ -17,7 +17,7 @@ export default function Navbar() {
             src="/vgoLogo.png"
             alt="VGO Racing Logo"
             width={140}
-            height={60}
+            height={140}
             className="object-contain w-auto h-10 md:h-12"
           />
         </Link>

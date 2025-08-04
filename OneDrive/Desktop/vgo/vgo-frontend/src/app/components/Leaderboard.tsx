@@ -57,6 +57,7 @@ export default function Leaderboard({
             src={racer.pfp}
             alt={racer.name}
             fill
+            sizes="40px"
             className="rounded-full object-cover border-2 border-gray-600"
           />
         </div>

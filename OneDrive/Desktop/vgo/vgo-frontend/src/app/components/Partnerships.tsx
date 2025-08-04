@@ -67,6 +67,7 @@ export function Partnerships() {
                     alt={sponsor.name}
                     fill
                     className="object-contain"
+                    sizes="(max-width: 768px) 64px, 72px"
                   />
                 </div>
               </div>
