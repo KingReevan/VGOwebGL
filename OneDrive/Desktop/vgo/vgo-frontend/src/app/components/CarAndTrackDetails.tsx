@@ -39,7 +39,7 @@ export default function CarAndTrackDetails() {
                     src="/hero-bg.jpeg" 
                     alt="High-performance electric go-kart"
                     fill
-                    sizes="100vw"
+                    sizes="(max-width: 1024px) 100vw, 66vw"
                     className="object-cover"
                     priority
                 />
@@ -54,7 +54,7 @@ export default function CarAndTrackDetails() {
                     src="/bigTrack.jpg" 
                     alt="Championship-level go-kart track"
                     fill
-                    sizes="100vw"
+                    sizes="(max-width: 1024px) 100vw, 66vw"
                     className="object-cover"
                 />
                 </div>
@@ -114,7 +114,7 @@ export default function CarAndTrackDetails() {
                     src="/hero-bg.jpeg" 
                     alt="High-performance electric go-kart"
                     fill
-                    sizes="100vw"
+                    sizes="(max-width: 1024px) 100vw, 66vw"
                     className="object-cover"
                     priority
                 />
@@ -190,7 +190,7 @@ export default function CarAndTrackDetails() {
                     src="/asianRacer.webp" 
                     alt="Championship-level go-kart track"
                     fill
-                    sizes="100vw"
+                    sizes="(max-width: 1024px) 100vw, 66vw"
                     className="object-scale-down"
                 />
                 </div>
