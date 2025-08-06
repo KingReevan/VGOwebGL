@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export function Partnerships() {
+export default function Partnerships() {
   const sponsors = [
     { id: 1, name: "Red Bull", logo: "/sponsors/redbull.png", url: "#" },
     { id: 2, name: "Monster Energy", logo: "/sponsors/monster.png", url: "#" },

@@ -1,13 +1,9 @@
 
-import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/app/components/button";
-import { LightningBoltIcon, GaugeIcon, ShieldIcon, PersonIcon, MapPinIcon, LoopIcon, TimerIcon, SafetyIcon} from './components/icons';
 import Leaderboard from "./components/Leaderboard";
 import WhatsAppButton from "./components/WhatsAppButton";
 import PricingSection from './components/PricingSection';
 import UpcomingEvents from "./components/Slideshow";
-import { Partnerships } from "./components/Partnerships";
+import Partnerships from "./components/Partnerships";
 import Gallery from "./components/Gallery";
 import CarAndTrackDetails from "./components/CarAndTrackDetails";
 import Testimonials from "./components/Testimonials";
@@ -26,7 +22,6 @@ export default function Home() {
   return (
     
     <div className="min-h-screen selection:bg-red-500 bg-gray-900 text-primary">
-
       <main className="space-y-24">
         {/* Hero Section */}
         <Hero/>
