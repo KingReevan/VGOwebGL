@@ -1,7 +1,31 @@
+'use client'
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from 'react'
+import { ClientRequest } from "node:http";
 
 export default function Partnerships() {
+  const [radius, setRadius] = useState(150);
+
+  useEffect(() => {
+  const updateRadius = () => {
+    const width = window.innerWidth;
+    if (width < 450) {
+      setRadius(100);
+    } else if (width < 640) {
+      setRadius(120);
+    } else {
+      setRadius(150);
+    }
+  };
+
+  updateRadius(); // run once on mount
+  window.addEventListener('resize', updateRadius);
+
+  return () => window.removeEventListener('resize', updateRadius); // cleanup
+}, []);
+
+
   const sponsors = [
     { id: 1, name: "Red Bull", logo: "/sponsors/redbull.png", url: "#" },
     { id: 2, name: "Monster Energy", logo: "/sponsors/monster.png", url: "#" },
@@ -14,7 +38,7 @@ export default function Partnerships() {
   ];
 
   return (
-    <section className="pb-22 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden mb-0">
+    <section className="pb-22 bg-gradient-to-b from-gray-900 to-black relative overflow-x-hidden mb-0">
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-1/4 left-1/4 w-40 h-40 rounded-full bg-primary blur-3xl"></div>
@@ -30,7 +54,7 @@ export default function Partnerships() {
         </p>
 
         {/* Circular Sponsor Carousel */}
-        <div className="relative h-[400px] w-full max-w-2xl mx-auto">
+        <div className="relative h-[500px] sm:h-[400px] w-full max-w-2xl mx-auto">
           {/* Center Logo - Now properly centered */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-gray-800 border-4 border-red-500 flex items-center justify-center shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] z-10">
             <div className="relative w-180 h-80">
@@ -47,7 +71,6 @@ export default function Partnerships() {
           {/* Sponsors orbiting around */}
           {sponsors.map((sponsor, index) => {
             const angle = (index * 360) / sponsors.length;
-            const radius = 150;
             const x = Math.cos((angle * Math.PI) / 180);
             const y = Math.sin((angle * Math.PI) / 180);
 
