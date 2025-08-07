@@ -7,7 +7,7 @@ export default function PricingSection() {
     <section className="space-y-8 py-12">
       <h2 className="text-4xl font-extrabold text-center">Pricing Packages</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 px-4 sm:px-10 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-0 max-w-6xl mx-auto">
         {/* Basic Package */}
         <PricingCard
           title="10 Laps"
@@ -74,7 +74,9 @@ function PricingCard({
   return (
     <Link
       href={href}
-      className="min-h-[260px] border border-gray-900 rounded-xl overflow-hidden hover:shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] hover:border-red-500 transition-all duration-300 flex flex-col cursor-pointer h-full relative hover:scale-100 sm:hover:scale-105"
+      className="min-h-[260px] border border-gray-900 rounded-xl overflow-hidden hover:shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] hover:border-red-500 
+      transition-all duration-300 flex flex-col cursor-pointer h-full relative hover:scale-100 sm:hover:scale-105
+      w-full max-w-sm mx-auto"
     >
       {badge && (
         <div className="absolute top-0 right-0 text-xs font-bold px-2 py-1 rounded-bl text-blue-50 border-l border-b">
