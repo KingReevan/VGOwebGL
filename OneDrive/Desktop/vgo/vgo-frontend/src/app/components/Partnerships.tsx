@@ -6,24 +6,28 @@ import { ClientRequest } from "node:http";
 
 export default function Partnerships() {
   const [radius, setRadius] = useState(150);
+  const [circleSize, setCircleSize] = useState(96); // 96px (w-24) by default
 
   useEffect(() => {
-  const updateRadius = () => {
-    const width = window.innerWidth;
-    if (width < 450) {
-      setRadius(100);
-    } else if (width < 640) {
-      setRadius(120);
-    } else {
-      setRadius(150);
-    }
-  };
+    const updateDimensions = () => {
+      const width = window.innerWidth;
 
-  updateRadius(); // run once on mount
-  window.addEventListener('resize', updateRadius);
+      if (width < 450) {
+        setRadius(120);
+        setCircleSize(64); // w-16
+      } else if (width < 640) {
+        setRadius(130);
+        setCircleSize(80); // w-20
+      } else {
+        setRadius(150);
+        setCircleSize(96); // w-24
+      }
+    };
 
-  return () => window.removeEventListener('resize', updateRadius); // cleanup
-}, []);
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
 
 
   const sponsors = [
@@ -77,14 +81,16 @@ export default function Partnerships() {
             return (
               <div
                 key={sponsor.id}
-                className="absolute w-24 h-24 flex items-center justify-center rounded-full bg-gray-800 border-2 border-white/40 hover:border-primary transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20"
+                className="absolute flex items-center justify-center rounded-full bg-gray-800 border-2 border-white/40 hover:border-primary transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-primary/20"
                 style={{
+                  width: circleSize,
+                  height: circleSize,
                   left: `calc(50% + ${radius * x}px)`,
                   top: `calc(50% + ${radius * y}px)`,
-                  transform: 'translate(-50%, -50%)',
+                  transform: "translate(-50%, -50%)",
                 }}
               >
-                <div className="relative w-18 h-18">
+                <div className="relative w-full h-full">
                   <Image
                     src={sponsor.logo}
                     alt={sponsor.name}
