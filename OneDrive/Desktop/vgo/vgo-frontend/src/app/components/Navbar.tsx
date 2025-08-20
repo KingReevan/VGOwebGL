@@ -2,15 +2,27 @@
 import Image from "next/image";
 import Link from 'next/link'
 import { Button } from '@/app/components/button'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown, Globe } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [languageMenuOpen, setLanguageMenuOpen] = useState(false)
+  const [currentLanguage, setCurrentLanguage] = useState('EN')
 
   useEffect(() => {
     document.body.style.overflow = mobileMenuOpen ? 'hidden' : 'auto';
   }, [mobileMenuOpen]);
+
+  const toggleLanguageMenu = () => {
+    setLanguageMenuOpen(!languageMenuOpen)
+  }
+
+  const selectLanguage = (lang: string) => {
+    setCurrentLanguage(lang)
+    setLanguageMenuOpen(false)
+    // Here you would add logic to change the actual language of the site
+  }
 
   return (
     <nav className="sticky top-0 z-50 w-full backdrop-blur bg-gradient-to-br from-black to-red-500/60 supports-[backdrop-filter]:bg-black/60 border-b border-red-500 shadow-[0_2px_10px_0_rgba(255,0,0,0.4)] selection:bg-red-500">
@@ -43,6 +55,44 @@ export default function Navbar() {
           <Link href="/contact" className="text-sm font-medium hover:text-primary transition-colors">
             Contact
           </Link>
+          
+          {/* Language Selector - Desktop */}
+          <div className="relative ml-2">
+            <button 
+              onClick={toggleLanguageMenu}
+              className="flex items-center gap-1 px-3 py-1 rounded-md hover:bg-white/10 transition-colors"
+              aria-label="Language selector"
+            >
+              <Globe size={16} />
+              <span className="text-sm font-medium">{currentLanguage}</span>
+              <ChevronDown size={16} className={`transition-transform ${languageMenuOpen ? 'rotate-180' : ''}`} />
+            </button>
+            
+            {/* Language Dropdown */}
+            {languageMenuOpen && (
+              <div className="absolute right-0 mt-2 w-32 bg-black/90 backdrop-blur-sm border border-red-500/30 rounded-md shadow-lg overflow-hidden z-50 animate-in fade-in zoom-in-95">
+                <button 
+                  onClick={() => selectLanguage('EN')}
+                  className={`w-full text-left px-4 py-2 text-sm hover:bg-red-900/50 transition-colors ${currentLanguage === 'EN' ? 'bg-red-900/30' : ''}`}
+                >
+                  English
+                </button>
+                <button 
+                  onClick={() => selectLanguage('ES')}
+                  className={`w-full text-left px-4 py-2 text-sm hover:bg-red-900/50 transition-colors ${currentLanguage === 'ES' ? 'bg-red-900/30' : ''}`}
+                >
+                  Español
+                </button>
+                <button 
+                  onClick={() => selectLanguage('FR')}
+                  className={`w-full text-left px-4 py-2 text-sm hover:bg-red-900/50 transition-colors ${currentLanguage === 'FR' ? 'bg-red-900/30' : ''}`}
+                >
+                  Français
+                </button>
+              </div>
+            )}
+          </div>
+
           <div className="flex space-x-2 ml-4">
             <Button asChild variant="default" className="text-xs sm:text-sm">
               <Link href="/login">Login</Link>
@@ -54,13 +104,17 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-white z-52 cursor-pointer"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center gap-4">
+          {/* Language Selector - Mobile (only icon) */}
+
+          <button 
+            className="text-white z-52 cursor-pointer"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
 
         {/* Mobile Menu - Fixed positioning with proper height */}
         <div className={`md:hidden fixed inset-0 bg-gradient-to-b from-red-950 via-black to-red-950
@@ -104,7 +158,56 @@ export default function Navbar() {
             >
               Contact
             </Link>
-            <div className="flex flex-col space-y-4 mt-8 w-full max-w-xs px-4">
+            
+            {/* Language Selector - Mobile Expanded */}
+            <div className="w-full max-w-xs px-4 mt-4">
+              <div className="relative">
+                <button 
+                  onClick={() => setLanguageMenuOpen(!languageMenuOpen)}
+                  className="w-full flex items-center justify-between px-4 py-3 bg-black/30 border border-red-500/50 rounded-lg text-white"
+                >
+                  <div className="flex items-center gap-2">
+                    <Globe size={18} />
+                    <span>Language ({currentLanguage})</span>
+                  </div>
+                  <ChevronDown size={18} className={`transition-transform ${languageMenuOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {languageMenuOpen && (
+                  <div className="mt-1 w-full bg-black/70 backdrop-blur-sm border border-red-500/30 rounded-md overflow-hidden animate-in fade-in zoom-in-95">
+                    <button 
+                      onClick={() => {
+                        selectLanguage('EN');
+                        setMobileMenuOpen(false);
+                      }}
+                      className={`w-full text-white text-left px-4 py-3 hover:bg-red-900/50 transition-colors ${currentLanguage === 'EN' ? 'bg-red-900/30' : ''}`}
+                    >
+                      English
+                    </button>
+                    <button 
+                      onClick={() => {
+                        selectLanguage('ES');
+                        setMobileMenuOpen(false);
+                      }}
+                      className={`w-full text-white text-left px-4 py-3 hover:bg-red-900/50 transition-colors ${currentLanguage === 'ES' ? 'bg-red-900/30' : ''}`}
+                    >
+                      Español
+                    </button>
+                    <button 
+                      onClick={() => {
+                        selectLanguage('FR');
+                        setMobileMenuOpen(false);
+                      }}
+                      className={`w-full text-white text-left px-4 py-3 hover:bg-red-900/50 transition-colors ${currentLanguage === 'FR' ? 'bg-red-900/30' : ''}`}
+                    >
+                      Français
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="flex flex-col space-y-4 mt-4 w-full max-w-xs px-4">
               <Button 
                 asChild 
                 variant="secondary" 
@@ -130,7 +233,6 @@ export default function Navbar() {
             <span>•</span>
             <Link href="mailto:info@vgoracing.com">info@vgoracing.com</Link>
           </div>
-
         </div>
       </div>
     </nav>
