@@ -4,22 +4,23 @@ import Image from 'next/image';
 
 export default function Gallery() {
   const topRowImages = [
-    '/gallery/gallery1.jpg',
-    '/gallery/gallery2.png',
-    '/gallery/gallery3.jpeg',
-    '/gallery/gallery4.jpg',
-    '/gallery/gallery5.png',
-    '/gallery/gallery6.jpg',
-  ];
+  { src: '/gallery/gallery1.jpg', link: 'https://www.instagram.com/vanorarobots/' },
+  { src: '/gallery/gallery2.png', link: 'https://www.instagram.com/vanorarobots/' },
+  { src: '/gallery/gallery3.jpeg', link: 'https://www.instagram.com/vanorarobots/' },
+  { src: '/gallery/gallery4.jpg', link: 'https://www.instagram.com/vanorarobots/' },
+  { src: '/gallery/gallery5.png', link: 'https://www.instagram.com/vanorarobots/' },
+  { src: '/gallery/gallery6.jpg', link: 'https://www.instagram.com/vanorarobots/' },
+];
 
-  const bottomRowImages = [
-    '/gallery/gallery7.jpg',
-    '/gallery/gallery8.jpeg',
-    '/gallery/gallery9.jpeg',
-    '/gallery/gallery10.jpeg',
-    '/gallery/gallery11.jpg',
-    '/gallery/gallery12.png',
-  ];
+const bottomRowImages = [
+  { src: '/gallery/gallery7.jpg', link: 'https://www.instagram.com/vanorarobots/' },
+  { src: '/gallery/gallery8.jpeg', link: 'https://www.instagram.com/vanorarobots/' },
+  { src: '/gallery/gallery9.jpeg', link: 'https://www.instagram.com/vanorarobots/' },
+  { src: '/gallery/gallery10.jpeg', link: 'https://www.instagram.com/vanorarobots/' },
+  { src: '/gallery/gallery11.jpg', link: 'https://www.instagram.com/vanorarobots/' },
+  { src: '/gallery/gallery12.png', link: 'https://www.instagram.com/vanorarobots/' },
+];
+
 
   const duplicatedTop = [...topRowImages, ...topRowImages];
   const duplicatedBottom = [...bottomRowImages, ...bottomRowImages];
@@ -33,17 +34,24 @@ export default function Gallery() {
       {/* Mobile */}
       <div className="md:hidden relative h-48 overflow-hidden">
         <div className="absolute top-0 left-0 flex animate-scroll">
-          {duplicatedTop.map((src, index) => (
+          {duplicatedTop.map((item, index) => (
             <div key={`mobile-${index}`} className="relative w-64 h-48 flex-shrink-0 px-2">
-              <div className="relative w-full h-full rounded-xl shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 overflow-hidden">
-                <Image
-                  src={src}
-                  alt={`Gallery image ${index + 1}`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 640px"
-                  className="object-cover hover:scale-110 transition-transform duration-300"
-                />
-              </div>
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block relative w-full h-full rounded-xl shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 overflow-hidden"
+              >
+                <div className="relative w-full h-full rounded-xl shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 overflow-hidden">
+                  <Image
+                    src={item.src}
+                    alt={`Gallery image ${index + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 640px"
+                    className="object-cover hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+              </a>
             </div>
           ))}
         </div>
@@ -54,17 +62,24 @@ export default function Gallery() {
         {/* Top row: left to right */}
         <div className="relative h-48 overflow-hidden">
           <div className="absolute top-0 left-0 flex animate-scroll">
-            {duplicatedTop.map((src, index) => (
+            {duplicatedTop.map((item, index) => (
               <div key={`row1-${index}`} className="relative w-64 h-48 flex-shrink-0 px-2">
-                <div className="relative w-full h-full rounded-xl shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 overflow-hidden">
-                  <Image
-                    src={src}
-                    alt={`Gallery image ${index + 1}`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 640px"
-                    className="object-cover hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block relative w-full h-full rounded-xl shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 overflow-hidden"
+                >
+                  <div className="relative w-full h-full rounded-xl shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 overflow-hidden">
+                    <Image
+                      src={item.src}
+                      alt={`Gallery image ${index + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 640px"
+                      className="object-cover hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                </a>
               </div>
             ))}
           </div>
@@ -73,17 +88,24 @@ export default function Gallery() {
         {/* Bottom row: right to left (achieved by reverse animation) */}
         <div className="relative h-48 overflow-hidden">
           <div className="absolute top-0 left-0 flex animate-scroll-reverse">
-            {duplicatedBottom.map((src, index) => (
+            {duplicatedBottom.map((item, index) => (
               <div key={`row2-${index}`} className="relative w-64 h-48 flex-shrink-0 px-2">
-                <div className="relative w-full h-full rounded-xl shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 overflow-hidden">
-                  <Image
-                    src={src}
-                    alt={`Gallery image ${index + 1}`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 640px"
-                    className="object-cover hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block relative w-full h-full rounded-xl shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 overflow-hidden"
+                >
+                  <div className="relative w-full h-full rounded-xl shadow-[0_0_15px_2px_rgba(255,0,0,0.4)] border border-red-500 overflow-hidden">
+                    <Image
+                      src={item.src}
+                      alt={`Gallery image ${index + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 640px"
+                      className="object-cover hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                </a>
               </div>
             ))}
           </div>
